@@ -1,10 +1,11 @@
 import { MetadataRoute } from "next";
-import { getSortedPostsMeta } from "@/lib/posts";
+import { getSortedPostsMeta, getAllTags, tagToSlug } from "@/lib/posts";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://choicompany-site.vercel.app";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getSortedPostsMeta();
+  const tags = getAllTags();
 
   const staticRoutes: MetadataRoute.Sitemap = [
     {
@@ -28,5 +29,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...staticRoutes, ...postRoutes];
+  const tagRoutes: MetadataRoute.Sitemap = tags.map((tag) => ({
+    url: `${siteUrl}/blog/tag/${tagToSlug(tag)}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: 0.6,
+  }));
+
+  return [...staticRoutes, ...postRoutes, ...tagRoutes];
 }

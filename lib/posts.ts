@@ -61,6 +61,31 @@ export function getAllPostSlugs(): string[] {
     .map((fileName) => fileName.replace(/\.md$/, ""));
 }
 
+/** Convert a tag label to a URL-safe slug (e.g. "AI Tools" → "ai-tools") */
+export function tagToSlug(tag: string): string {
+  return tag.toLowerCase().replace(/\s+/g, "-");
+}
+
+/** Return all unique tags across all posts */
+export function getAllTags(): string[] {
+  const posts = getSortedPostsMeta();
+  const seen = new Set<string>();
+  for (const post of posts) {
+    for (const tag of post.tags) {
+      seen.add(tag);
+    }
+  }
+  return Array.from(seen).sort();
+}
+
+/** Return posts that have a given tag (case-insensitive slug match) */
+export function getPostsByTag(tagSlug: string): PostMeta[] {
+  const posts = getSortedPostsMeta();
+  return posts.filter((p) =>
+    p.tags.some((t) => tagToSlug(t) === tagSlug)
+  );
+}
+
 export async function getPostBySlug(slug: string): Promise<Post> {
   const fullPath = path.join(postsDirectory, `${slug}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
