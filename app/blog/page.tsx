@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { getSortedPostsMeta } from "@/lib/posts";
 import PostCard from "@/components/PostCard";
 import AdSlot from "@/components/AdSlot";
@@ -14,6 +15,17 @@ export default function BlogPage() {
 
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+      {/* Breadcrumb */}
+      <nav aria-label="Breadcrumb" className="mb-8 text-sm text-ink-400">
+        <ol className="flex items-center gap-2">
+          <li>
+            <Link href="/" className="hover:text-brand-600 transition-colors">Home</Link>
+          </li>
+          <li aria-hidden="true" className="text-ink-300">/</li>
+          <li className="text-ink-600 font-medium">Blog</li>
+        </ol>
+      </nav>
+
       {/* Page header */}
       <div className="mb-10 pb-8 border-b border-ink-200">
         <p className="section-label mb-2">The Archive</p>

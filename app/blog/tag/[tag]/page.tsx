@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import { getAllTags, getPostsByTag, tagToSlug } from "@/lib/posts";
 import PostCard from "@/components/PostCard";
 import AdSlot from "@/components/AdSlot";
@@ -38,6 +39,21 @@ export default function TagPage({ params }: Props) {
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-12">
+      {/* Breadcrumb */}
+      <nav aria-label="Breadcrumb" className="mb-8 text-sm text-ink-400">
+        <ol className="flex items-center gap-2 flex-wrap">
+          <li>
+            <Link href="/" className="hover:text-brand-600 transition-colors">Home</Link>
+          </li>
+          <li aria-hidden="true" className="text-ink-300">/</li>
+          <li>
+            <Link href="/blog" className="hover:text-brand-600 transition-colors">Blog</Link>
+          </li>
+          <li aria-hidden="true" className="text-ink-300">/</li>
+          <li className="text-ink-600 font-medium">{tagLabel}</li>
+        </ol>
+      </nav>
+
       <div className="mb-10">
         <p className="text-sm font-semibold uppercase tracking-widest text-brand-600 mb-2">
           Tag

@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getAllPostSlugs, getPostBySlug, getSortedPostsMeta } from "@/lib/posts";
+import { getAllPostSlugs, getPostBySlug, getSortedPostsMeta, tagToSlug } from "@/lib/posts";
 import AdSlot from "@/components/AdSlot";
+import NewsletterSignup from "@/components/NewsletterSignup";
 
 interface Props {
   params: { slug: string };
@@ -73,11 +74,13 @@ export default async function BlogPostPage({ params }: Props) {
 
   const allPosts = getSortedPostsMeta();
   const related = allPosts
-    .filter(
-      (p) =>
-        p.slug !== post.slug &&
-        p.tags.some((t) => post.tags.includes(t))
-    )
+    .filter((p) => p.slug !== post.slug)
+    .map((p) => ({
+      ...p,
+      sharedTags: p.tags.filter((t) => post.tags.includes(t)).length,
+    }))
+    .filter((p) => p.sharedTags > 0)
+    .sort((a, b) => b.sharedTags - a.sharedTags)
     .slice(0, 3);
 
   const wordCount = parseInt(post.readingTime) * 200;
@@ -160,9 +163,9 @@ export default async function BlogPostPage({ params }: Props) {
             <header className="mb-8">
               <div className="flex flex-wrap gap-2 mb-4">
                 {post.tags.map((tag) => (
-                  <span key={tag} className="tag-pill">
+                  <Link key={tag} href={`/blog/tag/${tagToSlug(tag)}`} className="tag-pill">
                     {tag}
-                  </span>
+                  </Link>
                 ))}
               </div>
               <h1 className="text-4xl sm:text-5xl font-bold text-ink-900 mb-4 leading-[1.15] tracking-tight font-serif">
@@ -209,6 +212,9 @@ export default async function BlogPostPage({ params }: Props) {
                 dangerouslySetInnerHTML={{ __html: contentBottom }}
               />
             )}
+
+            {/* Newsletter inline signup */}
+            <NewsletterSignup variant="inline" />
 
             {/* Bottom ad */}
             <div className="mt-10 pt-8 border-t border-ink-200">

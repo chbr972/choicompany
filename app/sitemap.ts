@@ -1,5 +1,5 @@
 import { MetadataRoute } from "next";
-import { getSortedPostsMeta, getAllTags, tagToSlug } from "@/lib/posts";
+import { getSortedPostsMeta, getAllTags, tagToSlug, CATEGORIES } from "@/lib/posts";
 import { getSortedToolsMeta } from "@/lib/tools";
 import { getSortedComparisonsMeta } from "@/lib/comparisons";
 
@@ -25,6 +25,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${siteUrl}/categories`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.85,
+    },
+    {
       url: `${siteUrl}/tools`,
       lastModified: new Date(),
       changeFrequency: "weekly",
@@ -37,6 +43,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
   ];
+
+  const categoryRoutes: MetadataRoute.Sitemap = CATEGORIES.map((cat) => ({
+    url: `${siteUrl}/categories/${cat.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: 0.8,
+  }));
 
   const postRoutes: MetadataRoute.Sitemap = posts.map((post) => ({
     url: `${siteUrl}/blog/${post.slug}`,
@@ -66,5 +79,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }));
 
-  return [...staticRoutes, ...toolRoutes, ...comparisonRoutes, ...postRoutes, ...tagRoutes];
+  return [...staticRoutes, ...categoryRoutes, ...toolRoutes, ...comparisonRoutes, ...postRoutes, ...tagRoutes];
 }
