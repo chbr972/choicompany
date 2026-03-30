@@ -40,6 +40,18 @@ export default function Header() {
             Home
           </Link>
           <Link
+            href="/tools"
+            className="px-3 py-1.5 rounded-lg text-ink-600 hover:text-ink-900 hover:bg-ink-100 transition-all"
+          >
+            Tools
+          </Link>
+          <Link
+            href="/reviews"
+            className="px-3 py-1.5 rounded-lg text-ink-600 hover:text-ink-900 hover:bg-ink-100 transition-all"
+          >
+            Reviews
+          </Link>
+          <Link
             href="/blog"
             className="px-3 py-1.5 rounded-lg text-ink-600 hover:text-ink-900 hover:bg-ink-100 transition-all"
           >
