@@ -71,7 +71,6 @@ export default async function BlogPostPage({ params }: Props) {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://choicompany-site.vercel.app";
   const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "Choi Company Blog";
 
-  // Related articles: other posts sharing at least one tag (max 3)
   const allPosts = getSortedPostsMeta();
   const related = allPosts
     .filter(
@@ -81,10 +80,8 @@ export default async function BlogPostPage({ params }: Props) {
     )
     .slice(0, 3);
 
-  // Word count estimate from reading time
   const wordCount = parseInt(post.readingTime) * 200;
 
-  // JSON-LD structured data (Article + BreadcrumbList)
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -114,30 +111,14 @@ export default async function BlogPostPage({ params }: Props) {
       {
         "@type": "BreadcrumbList",
         itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            name: "Home",
-            item: siteUrl,
-          },
-          {
-            "@type": "ListItem",
-            position: 2,
-            name: "Blog",
-            item: `${siteUrl}/blog`,
-          },
-          {
-            "@type": "ListItem",
-            position: 3,
-            name: post.title,
-            item: `${siteUrl}/blog/${post.slug}`,
-          },
+          { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+          { "@type": "ListItem", position: 2, name: "Blog", item: `${siteUrl}/blog` },
+          { "@type": "ListItem", position: 3, name: post.title, item: `${siteUrl}/blog/${post.slug}` },
         ],
       },
     ],
   };
 
-  // Inject mid-article ad after the 3rd paragraph
   const [contentTop, contentBottom] = splitAtParagraph(post.content, 3);
 
   return (
@@ -147,54 +128,50 @@ export default async function BlogPostPage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <div className="max-w-6xl mx-auto px-4 py-12">
-        {/* Breadcrumb nav */}
-        <nav aria-label="Breadcrumb" className="mb-8 text-sm text-gray-400">
-          <ol className="flex items-center gap-2" itemScope itemType="https://schema.org/BreadcrumbList">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10">
+        {/* Breadcrumb */}
+        <nav aria-label="Breadcrumb" className="mb-8 text-sm text-ink-400">
+          <ol className="flex items-center gap-2 flex-wrap" itemScope itemType="https://schema.org/BreadcrumbList">
             <li itemScope itemType="https://schema.org/ListItem" itemProp="itemListElement">
               <Link href="/" className="hover:text-brand-600 transition-colors" itemProp="item">
                 <span itemProp="name">Home</span>
               </Link>
               <meta itemProp="position" content="1" />
             </li>
-            <li aria-hidden="true">/</li>
+            <li aria-hidden="true" className="text-ink-300">/</li>
             <li itemScope itemType="https://schema.org/ListItem" itemProp="itemListElement">
               <Link href="/blog" className="hover:text-brand-600 transition-colors" itemProp="item">
                 <span itemProp="name">Blog</span>
               </Link>
               <meta itemProp="position" content="2" />
             </li>
-            <li aria-hidden="true">/</li>
+            <li aria-hidden="true" className="text-ink-300">/</li>
             <li itemScope itemType="https://schema.org/ListItem" itemProp="itemListElement">
-              <span className="text-gray-600" itemProp="name">{post.title}</span>
+              <span className="text-ink-600 line-clamp-1" itemProp="name">{post.title}</span>
               <meta itemProp="position" content="3" />
             </li>
           </ol>
         </nav>
 
-        <div className="flex gap-8">
+        <div className="flex gap-10">
           {/* Main content */}
           <article className="flex-1 min-w-0">
-            {/* Header */}
+            {/* Article header */}
             <header className="mb-8">
               <div className="flex flex-wrap gap-2 mb-4">
                 {post.tags.map((tag) => (
-                  <Link
-                    key={tag}
-                    href={`/blog/tag/${encodeURIComponent(tag.toLowerCase().replace(/\s+/g, "-"))}`}
-                    className="text-xs font-medium bg-brand-50 text-brand-700 px-2 py-1 rounded-full hover:bg-brand-100 transition-colors"
-                  >
+                  <span key={tag} className="tag-pill">
                     {tag}
-                  </Link>
+                  </span>
                 ))}
               </div>
-              <h1 className="text-4xl font-bold text-gray-900 mb-4 leading-tight font-serif">
+              <h1 className="text-4xl sm:text-5xl font-bold text-ink-900 mb-4 leading-[1.15] tracking-tight font-serif">
                 {post.title}
               </h1>
-              <p className="text-xl text-gray-500 mb-6">{post.description}</p>
-              <div className="flex items-center gap-4 text-sm text-gray-400 pb-6 border-b border-gray-200">
-                <span>{post.author}</span>
-                <span>·</span>
+              <p className="text-xl text-ink-500 mb-6 leading-relaxed">{post.description}</p>
+              <div className="flex flex-wrap items-center gap-3 text-sm text-ink-400 pb-6 border-b border-ink-200">
+                <span className="font-medium text-ink-600">{post.author}</span>
+                <span className="w-1 h-1 rounded-full bg-ink-300" />
                 <time dateTime={post.date}>
                   {new Date(post.date).toLocaleDateString("en-US", {
                     year: "numeric",
@@ -202,71 +179,72 @@ export default async function BlogPostPage({ params }: Props) {
                     day: "numeric",
                   })}
                 </time>
-                <span>·</span>
-                <span>{post.readingTime}</span>
+                <span className="w-1 h-1 rounded-full bg-ink-300" />
+                <span className="flex items-center gap-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm.75-13a.75.75 0 0 0-1.5 0v5c0 .414.336.75.75.75h4a.75.75 0 0 0 0-1.5h-3.25V5Z" clipRule="evenodd" />
+                  </svg>
+                  {post.readingTime}
+                </span>
               </div>
             </header>
 
             {/* Article body — top portion */}
             <div
-              className="prose-content text-lg leading-relaxed"
+              className="prose-content text-[1.0625rem] leading-[1.85]"
               dangerouslySetInnerHTML={{ __html: contentTop }}
             />
 
-            {/* Mid-article in-article ad (highest CPM placement) */}
+            {/* Mid-article ad */}
             {contentBottom && (
-              <div className="my-8">
-                <AdSlot
-                  slot="7788990011"
-                  format="in-article"
-                  showLabel
-                />
+              <div className="my-8 rounded-xl overflow-hidden bg-ink-50 p-4 border border-ink-100">
+                <AdSlot slot="7788990011" format="in-article" showLabel />
               </div>
             )}
 
             {/* Article body — bottom portion */}
             {contentBottom && (
               <div
-                className="prose-content text-lg leading-relaxed"
+                className="prose-content text-[1.0625rem] leading-[1.85]"
                 dangerouslySetInnerHTML={{ __html: contentBottom }}
               />
             )}
 
-            {/* Multiplex / related content ad below article */}
-            <div className="mt-8 pt-8 border-t border-gray-200">
-              <AdSlot
-                slot="1100998877"
-                format="multiplex"
-                showLabel
-                className="w-full"
-              />
+            {/* Bottom ad */}
+            <div className="mt-10 pt-8 border-t border-ink-200">
+              <AdSlot slot="1100998877" format="multiplex" showLabel className="w-full" />
             </div>
 
             {/* Related Articles */}
             {related.length > 0 && (
-              <section className="mt-12 pt-8 border-t border-gray-200">
-                <h2 className="text-xl font-bold text-gray-900 mb-6">Related Articles</h2>
+              <section className="mt-12 pt-8 border-t border-ink-200">
+                <div className="flex items-center gap-3 mb-6">
+                  <span className="section-label">Related Articles</span>
+                  <div className="flex-1 h-px bg-ink-200" />
+                </div>
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   {related.map((r) => (
                     <Link
                       key={r.slug}
                       href={`/blog/${r.slug}`}
-                      className="group block p-4 rounded-xl border border-gray-200 hover:border-brand-300 hover:shadow-sm transition-all"
+                      className="group block p-5 rounded-2xl border border-ink-200 hover:border-brand-300 hover:shadow-card transition-all bg-white"
                     >
-                      <div className="flex flex-wrap gap-1 mb-2">
+                      <div className="flex flex-wrap gap-1.5 mb-2">
                         {r.tags.slice(0, 2).map((t) => (
-                          <span
-                            key={t}
-                            className="text-xs font-medium bg-brand-50 text-brand-700 px-2 py-0.5 rounded-full"
-                          >
+                          <span key={t} className="tag-pill">
                             {t}
                           </span>
                         ))}
                       </div>
-                      <h3 className="text-sm font-semibold text-gray-900 group-hover:text-brand-600 transition-colors line-clamp-2">
+                      <h3 className="text-sm font-semibold text-ink-900 group-hover:text-brand-600 transition-colors line-clamp-2 mb-1">
                         {r.title}
                       </h3>
-                      <p className="text-xs text-gray-400 mt-1">{r.readingTime}</p>
+                      <p className="text-xs text-ink-400 flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-3.5 h-3.5">
+                          <path fillRule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm.75-13a.75.75 0 0 0-1.5 0v5c0 .414.336.75.75.75h4a.75.75 0 0 0 0-1.5h-3.25V5Z" clipRule="evenodd" />
+                        </svg>
+                        {r.readingTime}
+                      </p>
                     </Link>
                   ))}
                 </div>
