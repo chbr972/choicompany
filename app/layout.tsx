@@ -25,22 +25,35 @@ const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "My Content Site";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: siteName,
+    default: `${siteName} — AI Tools Reviews & Comparisons`,
     template: `%s | ${siteName}`,
   },
-  description: "Insightful articles on technology, productivity, and modern life.",
+  description:
+    "In-depth AI tool reviews, side-by-side comparisons, and expert guides. Find the best AI tools for writing, coding, image generation, and more.",
+  keywords: [
+    "AI tools review",
+    "best AI tools 2026",
+    "ChatGPT review",
+    "Claude review",
+    "AI tool comparison",
+    "AI writing tools",
+    "AI image generators",
+    "artificial intelligence tools",
+  ],
   openGraph: {
     type: "website",
     locale: "en_US",
     url: siteUrl,
     siteName,
-    title: siteName,
-    description: "Insightful articles on technology, productivity, and modern life.",
+    title: `${siteName} — AI Tools Reviews & Comparisons`,
+    description:
+      "In-depth AI tool reviews, side-by-side comparisons, and expert guides. Find the best AI tools for writing, coding, image generation, and more.",
   },
   twitter: {
     card: "summary_large_image",
-    title: siteName,
-    description: "Insightful articles on technology, productivity, and modern life.",
+    title: `${siteName} — AI Tools Reviews & Comparisons`,
+    description:
+      "In-depth AI tool reviews, side-by-side comparisons, and expert guides. Find the best AI tools for writing, coding, image generation, and more.",
   },
   alternates: {
     canonical: siteUrl,
