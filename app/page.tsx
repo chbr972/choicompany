@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getSortedPostsMeta } from "@/lib/posts";
 import PostCard from "@/components/PostCard";
 import AdSlot from "@/components/AdSlot";
+import NewsletterSignup from "@/components/NewsletterSignup";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://choicompany-site.vercel.app";
 const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "AI Tools Hub";
@@ -243,34 +244,10 @@ export default function HomePage() {
           </section>
         )}
 
-        {/* ── CTA Banner ────────────────────────────── */}
-        <section className="mt-16 rounded-3xl bg-gradient-to-br from-brand-600 to-brand-800 px-8 py-12 text-center text-white overflow-hidden relative">
-          <div
-            className="absolute inset-0 opacity-[0.06]"
-            style={{
-              backgroundImage:
-                "radial-gradient(circle, #ffffff 1px, transparent 1px)",
-              backgroundSize: "24px 24px",
-            }}
-          />
-          <div className="relative">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-3 tracking-tight">
-              Find your next favorite AI tool
-            </h2>
-            <p className="text-brand-200 mb-6 text-lg">
-              Browse our full directory of reviewed and rated AI tools across every category.
-            </p>
-            <Link
-              href="/tools"
-              className="inline-flex items-center gap-2 bg-white text-brand-700 font-bold px-7 py-3 rounded-full hover:bg-brand-50 transition-colors shadow-sm"
-            >
-              Browse All Tools
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">
-                <path fillRule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.638L10.23 5.29a.75.75 0 1 1 1.04-1.08l5.5 5.25a.75.75 0 0 1 0 1.08l-5.5 5.25a.75.75 0 1 1-1.04-1.08l4.158-3.96H3.75A.75.75 0 0 1 3 10Z" clipRule="evenodd" />
-              </svg>
-            </Link>
-          </div>
-        </section>
+        {/* ── Newsletter CTA ─────────────────────── */}
+        <div className="mt-16">
+          <NewsletterSignup variant="hero" />
+        </div>
       </div>
     </>
   );

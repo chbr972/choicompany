@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAllPostSlugs, getPostBySlug, getSortedPostsMeta } from "@/lib/posts";
 import AdSlot from "@/components/AdSlot";
+import NewsletterSignup from "@/components/NewsletterSignup";
 
 interface Props {
   params: { slug: string };
@@ -214,6 +215,9 @@ export default async function BlogPostPage({ params }: Props) {
             <div className="mt-10 pt-8 border-t border-ink-200">
               <AdSlot slot="1100998877" format="multiplex" showLabel className="w-full" />
             </div>
+
+            {/* Newsletter signup */}
+            <NewsletterSignup variant="inline" />
 
             {/* Related Articles */}
             {related.length > 0 && (
