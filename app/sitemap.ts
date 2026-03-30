@@ -20,6 +20,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "daily",
       priority: 0.9,
     },
+    {
+      url: `${siteUrl}/tools`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${siteUrl}/tools/prompt-generator`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+    {
+      url: `${siteUrl}/tools/compare`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.85,
+    },
+    {
+      url: `${siteUrl}/tools/text-summarizer`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
   ];
 
   const postRoutes: MetadataRoute.Sitemap = posts.map((post) => ({

@@ -120,6 +120,55 @@ export default function ToolsPage() {
       </section>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+        {/* Free mini-tools */}
+        <section className="mb-12">
+          <div className="flex items-center gap-3 mb-6">
+            <span className="section-label">Free Tools — Try Now</span>
+            <div className="flex-1 h-px bg-ink-200" />
+          </div>
+          <div className="grid sm:grid-cols-3 gap-5">
+            {[
+              {
+                href: "/tools/prompt-generator",
+                icon: "✦",
+                title: "AI Prompt Generator",
+                desc: "Get optimized prompts for ChatGPT & Claude across 6 categories.",
+                badge: "100+ prompts",
+              },
+              {
+                href: "/tools/compare",
+                icon: "⇄",
+                title: "AI Tool Comparison",
+                desc: "Compare 15+ AI tools by rating, price, and use case. Filter by category.",
+                badge: "15 tools",
+              },
+              {
+                href: "/tools/text-summarizer",
+                icon: "◈",
+                title: "AI Text Summarizer",
+                desc: "Paste any text and get a concise summary. Runs in your browser, 100% private.",
+                badge: "No sign-up",
+              },
+            ].map((tool) => (
+              <Link
+                key={tool.href}
+                href={tool.href}
+                className="group block bg-gradient-to-br from-brand-50 to-white rounded-2xl p-6 border border-brand-200 hover:border-brand-400 hover:shadow-card transition-all"
+              >
+                <div className="text-2xl mb-3 text-brand-600">{tool.icon}</div>
+                <div className="flex items-start justify-between gap-2 mb-2">
+                  <h3 className="font-bold text-ink-900 group-hover:text-brand-700 transition-colors">{tool.title}</h3>
+                  <span className="shrink-0 text-[10px] font-bold bg-brand-100 text-brand-700 px-2 py-0.5 rounded-full">{tool.badge}</span>
+                </div>
+                <p className="text-sm text-ink-500 leading-relaxed">{tool.desc}</p>
+                <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand-600 group-hover:text-brand-700">
+                  Try free →
+                </span>
+              </Link>
+            ))}
+          </div>
+        </section>
+
         {/* Category filter */}
         <div className="flex flex-wrap gap-2 mb-8">
           {categories.map((cat) => (
