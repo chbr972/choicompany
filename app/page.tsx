@@ -80,7 +80,7 @@ export default function HomePage() {
             backgroundSize: "28px 28px",
           }}
         />
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 py-20 sm:py-28 text-center">
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-24 min-h-[60vh] sm:min-h-0 flex flex-col justify-center text-center">
           <div className="inline-flex items-center gap-2 bg-brand-100 text-brand-700 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-brand-500 animate-pulse" />
             AI Tools Directory
@@ -137,7 +137,9 @@ export default function HomePage() {
                 <p className="text-ink-500 text-lg mb-6 leading-relaxed max-w-3xl">
                   {featured.description}
                 </p>
-                <div className="flex flex-wrap items-center gap-4 text-sm text-ink-400">
+                <div className="flex flex-wrap items-center gap-4 text-sm text-ink-500">
+                  <span className="font-medium text-ink-700">By {featured.author}</span>
+                  <span className="w-1 h-1 rounded-full bg-ink-300" />
                   <time dateTime={featured.date}>
                     {new Date(featured.date).toLocaleDateString("en-US", {
                       year: "numeric",

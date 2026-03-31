@@ -32,26 +32,29 @@ export default function PostCard({ post }: PostCardProps) {
         <h2 className="text-lg font-bold text-ink-900 mb-2 leading-snug tracking-tight flex-1">
           <Link
             href={`/blog/${post.slug}`}
-            className="hover:text-brand-600 transition-colors"
+            className="hover:text-brand-700 transition-colors"
           >
             {post.title}
           </Link>
         </h2>
 
         {/* Description */}
-        <p className="text-ink-500 text-sm leading-relaxed line-clamp-3 mb-5">
+        <p className="text-ink-600 text-sm leading-relaxed line-clamp-3 mb-5">
           {post.description}
         </p>
 
         {/* Meta */}
-        <div className="flex items-center justify-between text-xs text-ink-400 pt-4 border-t border-ink-100">
-          <time dateTime={post.date}>
-            {new Date(post.date).toLocaleDateString("en-US", {
-              month: "short",
-              day: "numeric",
-              year: "numeric",
-            })}
-          </time>
+        <div className="flex items-center justify-between text-xs text-ink-500 pt-4 border-t border-ink-100">
+          <div className="flex flex-col gap-1">
+            <span className="font-medium text-ink-700">By {post.author}</span>
+            <time dateTime={post.date} className="text-ink-500">
+              {new Date(post.date).toLocaleDateString("en-US", {
+                month: "short",
+                day: "numeric",
+                year: "numeric",
+              })}
+            </time>
+          </div>
           <span className="flex items-center gap-1 font-medium text-ink-500">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-3.5 h-3.5 opacity-70">
               <path fillRule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm.75-13a.75.75 0 0 0-1.5 0v5c0 .414.336.75.75.75h4a.75.75 0 0 0 0-1.5h-3.25V5Z" clipRule="evenodd" />
