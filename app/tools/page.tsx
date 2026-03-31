@@ -149,6 +149,27 @@ export default function ToolsPage() {
                 desc: "Paste any text and get a concise summary. Runs in your browser, 100% private.",
                 badge: "No sign-up",
               },
+              {
+                href: "/tools/tone-analyzer",
+                icon: "◎",
+                title: "AI Writing Tone Analyzer",
+                desc: "Paste text to detect tone — formal, casual, persuasive, emotional, and more.",
+                badge: "Instant",
+              },
+              {
+                href: "/tools/prompt-library",
+                icon: "❋",
+                title: "AI Prompt Library",
+                desc: "Browse 60+ prompt templates for writing, coding, marketing, and research.",
+                badge: "60+ prompts",
+              },
+              {
+                href: "/tools/pricing-calculator",
+                icon: "$",
+                title: "AI Model Pricing Calculator",
+                desc: "Compare real API costs for GPT-4o, Claude, Gemini and 15 more models.",
+                badge: "15 models",
+              },
             ].map((tool) => (
               <Link
                 key={tool.href}
