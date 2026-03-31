@@ -55,7 +55,7 @@ export default async function ComparisonPage({ params }: Props) {
   }
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://issuebyte.com";
-  const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "Choi Company Blog";
+  const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "IssueByte";
 
   const allTools = getSortedToolsMeta();
   const featuredTools = allTools.filter((t) =>

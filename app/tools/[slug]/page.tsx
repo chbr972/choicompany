@@ -96,12 +96,6 @@ export default function ToolDetailPage({ params }: Props) {
     description: tool.description,
     applicationCategory: tool.category,
     offers: { "@type": "Offer", price: tool.pricingTiers[0]?.price ?? tool.price },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: tool.rating,
-      bestRating: 5,
-      ratingCount: 128,
-    },
     url: `${siteUrl}/tools/${tool.slug}`,
   };
 

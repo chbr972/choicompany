@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   // Find the canonical tag label from the first matching post
   const tagLabel = posts[0].tags.find((t) => tagToSlug(t) === params.tag) ?? params.tag;
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://choicompany-site.vercel.app";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://issuebyte.com";
 
   return {
     title: `${tagLabel} Articles — Guides & Insights`,

@@ -93,6 +93,12 @@ export default async function BlogPostPage({ params }: Props) {
         "@id": `${siteUrl}/blog/${post.slug}#article`,
         headline: post.title,
         description: post.description,
+        image: {
+          "@type": "ImageObject",
+          url: post.coverImage
+            ? `${siteUrl}${post.coverImage}`
+            : `${siteUrl}/og-default.png`,
+        },
         keywords: post.tags.join(", "),
         wordCount,
         articleSection: post.tags[0] || "General",
