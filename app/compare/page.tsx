@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     "ChatGPT vs Claude",
     "best AI writing tools",
     "GitHub Copilot vs Cursor",
-    "AI tools 2024",
+    "AI tools 2026",
   ],
 };
 

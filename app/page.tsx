@@ -5,7 +5,7 @@ import PostCard from "@/components/PostCard";
 import AdSlot from "@/components/AdSlot";
 import NewsletterSignup from "@/components/NewsletterSignup";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://choicompany-site.vercel.app";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://issuebyte.com";
 const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "AI Tools Hub";
 
 export const metadata: Metadata = {

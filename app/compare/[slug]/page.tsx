@@ -17,7 +17,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   try {
     const comparison = await getComparisonBySlug(params.slug);
-    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://choicompany-site.vercel.app";
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://issuebyte.com";
     return {
       title: comparison.title,
       description: comparison.description,
@@ -54,7 +54,7 @@ export default async function ComparisonPage({ params }: Props) {
     notFound();
   }
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://choicompany-site.vercel.app";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://issuebyte.com";
   const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "Choi Company Blog";
 
   const allTools = getSortedToolsMeta();

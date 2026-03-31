@@ -1,11 +1,15 @@
 import { MetadataRoute } from "next";
 import { getSortedPostsMeta, getAllTags, tagToSlug } from "@/lib/posts";
+import { getAllToolSlugs } from "@/lib/tools";
+import { getAllComparisonSlugs } from "@/lib/comparisons";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://choicompany-site.vercel.app";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://issuebyte.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getSortedPostsMeta();
   const tags = getAllTags();
+  const toolSlugs = getAllToolSlugs();
+  const comparisonSlugs = getAllComparisonSlugs();
 
   const staticRoutes: MetadataRoute.Sitemap = [
     {
@@ -60,5 +64,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticRoutes, ...postRoutes, ...tagRoutes];
+  const toolDetailRoutes: MetadataRoute.Sitemap = toolSlugs.map((slug) => ({
+    url: `${siteUrl}/tools/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.85,
+  }));
+
+  const comparisonRoutes: MetadataRoute.Sitemap = comparisonSlugs.map((slug) => ({
+    url: `${siteUrl}/compare/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+  }));
+
+  return [...staticRoutes, ...toolDetailRoutes, ...comparisonRoutes, ...postRoutes, ...tagRoutes];
 }

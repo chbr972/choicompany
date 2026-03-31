@@ -17,7 +17,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   try {
     const post = await getPostBySlug(params.slug);
-    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://choicompany-site.vercel.app";
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://issuebyte.com";
     return {
       title: post.title,
       description: post.description,
@@ -69,8 +69,8 @@ export default async function BlogPostPage({ params }: Props) {
     notFound();
   }
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://choicompany-site.vercel.app";
-  const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "Choi Company Blog";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://issuebyte.com";
+  const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "IssueByte";
 
   const allPosts = getSortedPostsMeta();
   const related = allPosts
@@ -212,9 +212,6 @@ export default async function BlogPostPage({ params }: Props) {
                 dangerouslySetInnerHTML={{ __html: contentBottom }}
               />
             )}
-
-            {/* Newsletter inline signup */}
-            <NewsletterSignup variant="inline" />
 
             {/* Bottom ad */}
             <div className="mt-10 pt-8 border-t border-ink-200">

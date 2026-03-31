@@ -19,7 +19,7 @@ const merriweather = Merriweather({
   display: "swap",
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://issuebyte.com";
 const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "My Content Site";
 
 export const metadata: Metadata = {
@@ -48,12 +48,21 @@ export const metadata: Metadata = {
     title: `${siteName} — AI Tools Reviews & Comparisons`,
     description:
       "In-depth AI tool reviews, side-by-side comparisons, and expert guides. Find the best AI tools for writing, coding, image generation, and more.",
+    images: [
+      {
+        url: `${siteUrl}/og-default.png`,
+        width: 1200,
+        height: 630,
+        alt: `${siteName} — AI Tools Reviews & Comparisons`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${siteName} — AI Tools Reviews & Comparisons`,
     description:
       "In-depth AI tool reviews, side-by-side comparisons, and expert guides. Find the best AI tools for writing, coding, image generation, and more.",
+    images: [`${siteUrl}/og-default.png`],
   },
   alternates: {
     canonical: siteUrl,

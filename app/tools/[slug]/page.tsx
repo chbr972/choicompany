@@ -15,7 +15,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const tool = getToolBySlug(params.slug);
   if (!tool) return { title: "Tool Not Found" };
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://choicompany-site.vercel.app";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://issuebyte.com";
   return {
     title: `${tool.name} Review — Features, Pricing & Alternatives`,
     description: `${tool.tagline}. Read our in-depth ${tool.name} review: pricing, key features, pros & cons, and the best alternatives.`,
@@ -87,7 +87,7 @@ export default function ToolDetailPage({ params }: Props) {
   if (!tool) notFound();
 
   const alternatives = getAlternatives(tool);
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://choicompany-site.vercel.app";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://issuebyte.com";
 
   const jsonLd = {
     "@context": "https://schema.org",
