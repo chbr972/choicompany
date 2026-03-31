@@ -1,158 +1,238 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getSortedToolsMeta } from "@/lib/tools";
-import AdSlot from "@/components/AdSlot";
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://choicompany-site.vercel.app";
-const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "Choi Company Blog";
 
 export const metadata: Metadata = {
-  title: "AI Tools Reviews — Honest Ratings & Analysis",
+  title: "AI Tools Directory — Find the Best AI Software",
   description:
-    "In-depth AI tool reviews with honest ratings. We test ChatGPT, Claude, Midjourney, and more so you know exactly what to use and when.",
+    "Browse our curated directory of the best AI tools. Find reviews and comparisons for writing assistants, code generators, image tools, and productivity AI.",
   keywords: [
-    "AI tools review",
-    "best AI tools 2026",
-    "ChatGPT review",
-    "Claude review",
-    "AI writing tools",
-    "AI image generators",
+    "AI tools",
+    "AI directory",
+    "best AI software",
+    "AI reviews",
+    "ChatGPT alternatives",
+    "AI productivity",
   ],
-  alternates: {
-    canonical: `${siteUrl}/tools`,
+};
+
+const tools = [
+  {
+    name: "ChatGPT",
+    category: "Writing",
+    desc: "OpenAI's flagship conversational AI for writing, research, coding, and more.",
+    price: "Free / $20/mo",
+    slug: "chatgpt",
+    icon: "C",
   },
-};
+  {
+    name: "GitHub Copilot",
+    category: "Coding",
+    desc: "AI pair programmer that suggests code completions and entire functions in your editor.",
+    price: "$10/mo",
+    slug: "github-copilot",
+    icon: "G",
+  },
+  {
+    name: "Midjourney",
+    category: "Image",
+    desc: "AI image generation tool for creating stunning art and visuals from text prompts.",
+    price: "$10/mo",
+    slug: "midjourney",
+    icon: "M",
+  },
+  {
+    name: "Notion AI",
+    category: "Productivity",
+    desc: "AI-powered writing and summarization built directly into Notion workspaces.",
+    price: "$10/mo add-on",
+    slug: "notion-ai",
+    icon: "N",
+  },
+  {
+    name: "Perplexity AI",
+    category: "Research",
+    desc: "AI search engine that provides cited, real-time answers to complex questions.",
+    price: "Free / $20/mo",
+    slug: "perplexity-ai",
+    icon: "P",
+  },
+  {
+    name: "Claude",
+    category: "Writing",
+    desc: "Anthropic's AI assistant excelling at nuanced writing, analysis, and reasoning tasks.",
+    price: "Free / $20/mo",
+    slug: "claude",
+    icon: "A",
+  },
+  {
+    name: "Runway",
+    category: "Image",
+    desc: "AI-powered video and image editing platform for creatives and filmmakers.",
+    price: "Free / $15/mo",
+    slug: "runway",
+    icon: "R",
+  },
+  {
+    name: "Cursor",
+    category: "Coding",
+    desc: "AI-first code editor built on VS Code with deep codebase understanding.",
+    price: "Free / $20/mo",
+    slug: "cursor",
+    icon: "C",
+  },
+  {
+    name: "Jasper",
+    category: "Writing",
+    desc: "AI writing platform built for marketing teams, with brand voice and templates.",
+    price: "$49/mo",
+    slug: "jasper",
+    icon: "J",
+  },
+];
 
-const CATEGORY_COLORS: Record<string, string> = {
-  "AI Writing & Chat": "bg-brand-100 text-brand-700",
-  "AI Image Generation": "bg-accent-100 text-accent-700",
-  "AI Code Assistant": "bg-emerald-100 text-emerald-700",
-  "AI Research": "bg-amber-100 text-amber-700",
-};
-
-function StarRating({ rating }: { rating: number }) {
-  const full = Math.floor(rating);
-  const half = rating % 1 >= 0.5;
-  const empty = 5 - full - (half ? 1 : 0);
-  return (
-    <span className="flex items-center gap-0.5 text-amber-400" aria-label={`${rating} out of 5 stars`}>
-      {Array.from({ length: full }).map((_, i) => (
-        <svg key={`f${i}`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">
-          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-        </svg>
-      ))}
-      {half && (
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 opacity-50">
-          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-        </svg>
-      )}
-      {Array.from({ length: empty }).map((_, i) => (
-        <svg key={`e${i}`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 opacity-20">
-          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-        </svg>
-      ))}
-      <span className="ml-1 text-ink-600 font-semibold text-sm">{rating.toFixed(1)}</span>
-    </span>
-  );
-}
+const categories = ["All", "Writing", "Coding", "Image", "Productivity", "Research"];
 
 export default function ToolsPage() {
-  const tools = getSortedToolsMeta();
-
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    "@id": `${siteUrl}/tools`,
-    name: "AI Tools Reviews",
-    description: "In-depth reviews of the best AI tools available in 2026.",
-    url: `${siteUrl}/tools`,
-    isPartOf: { "@id": `${siteUrl}/#website` },
-  };
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-
       {/* Hero */}
-      <section className="bg-gradient-to-b from-brand-50 via-white to-white py-14 sm:py-20 text-center">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6">
-          <div className="inline-flex items-center gap-2 bg-brand-100 text-brand-700 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">
+      <section className="relative overflow-hidden bg-gradient-to-b from-brand-50 via-white to-white">
+        <div
+          className="absolute inset-0 opacity-[0.035]"
+          style={{
+            backgroundImage: "radial-gradient(circle, #6366f1 1px, transparent 1px)",
+            backgroundSize: "28px 28px",
+          }}
+        />
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 py-16 sm:py-20 text-center">
+          <div className="inline-flex items-center gap-2 bg-brand-100 text-brand-700 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-brand-500 animate-pulse" />
-            AI Tool Reviews
+            AI Tools Directory
           </div>
-          <h1 className="text-4xl sm:text-5xl font-bold text-ink-900 mb-4 leading-tight tracking-tight">
-            Honest AI Tool Reviews
+          <h1 className="text-4xl sm:text-5xl font-bold text-ink-900 mb-4 leading-[1.1] tracking-tight">
+            The Best <span className="text-brand-600">AI Tools</span> in One Place
           </h1>
-          <p className="text-lg text-ink-500 max-w-xl mx-auto leading-relaxed">
-            We test every major AI tool so you don't have to. Unbiased ratings,
-            real-world results, and clear recommendations.
+          <p className="text-lg text-ink-500 max-w-2xl mx-auto leading-relaxed">
+            Discover, compare, and choose the right AI tools for writing, coding, image generation,
+            productivity, and research.
           </p>
         </div>
       </section>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10">
-        {/* Ad */}
-        <div className="flex justify-center mb-10">
-          <AdSlot slot="1122334455" format="leaderboard" className="w-full max-w-[728px]" />
-        </div>
-
-        {/* Tool cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {tools.map((tool) => {
-            const catColor = CATEGORY_COLORS[tool.category] ?? "bg-ink-100 text-ink-600";
-            return (
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+        {/* Free mini-tools */}
+        <section className="mb-12">
+          <div className="flex items-center gap-3 mb-6">
+            <span className="section-label">Free Tools — Try Now</span>
+            <div className="flex-1 h-px bg-ink-200" />
+          </div>
+          <div className="grid sm:grid-cols-3 gap-5">
+            {[
+              {
+                href: "/tools/prompt-generator",
+                icon: "✦",
+                title: "AI Prompt Generator",
+                desc: "Get optimized prompts for ChatGPT & Claude across 6 categories.",
+                badge: "100+ prompts",
+              },
+              {
+                href: "/tools/compare",
+                icon: "⇄",
+                title: "AI Tool Comparison",
+                desc: "Compare 15+ AI tools by rating, price, and use case. Filter by category.",
+                badge: "15 tools",
+              },
+              {
+                href: "/tools/text-summarizer",
+                icon: "◈",
+                title: "AI Text Summarizer",
+                desc: "Paste any text and get a concise summary. Runs in your browser, 100% private.",
+                badge: "No sign-up",
+              },
+            ].map((tool) => (
               <Link
-                key={tool.slug}
-                href={`/tools/${tool.slug}`}
-                className="group block bg-white rounded-2xl border border-ink-200 hover:border-brand-300 hover:shadow-card-lg transition-all duration-200 overflow-hidden"
+                key={tool.href}
+                href={tool.href}
+                className="group block bg-gradient-to-br from-brand-50 to-white rounded-2xl p-6 border border-brand-200 hover:border-brand-400 hover:shadow-card transition-all"
               >
-                <div className="h-1 bg-gradient-to-r from-brand-500 to-accent-500" />
-                <div className="p-6">
-                  <div className="flex items-start justify-between gap-3 mb-3">
-                    <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${catColor}`}>
-                      {tool.category}
-                    </span>
-                    <span className="text-xs text-ink-400 font-medium shrink-0">{tool.pricingModel}</span>
-                  </div>
-
-                  <h2 className="text-lg font-bold text-ink-900 group-hover:text-brand-600 transition-colors mb-1 leading-snug">
-                    {tool.toolName}
-                  </h2>
-                  <p className="text-sm text-ink-500 mb-4 line-clamp-2 leading-relaxed">
-                    {tool.description}
-                  </p>
-
-                  <div className="flex items-center justify-between">
-                    <StarRating rating={tool.rating} />
-                    <span className="text-xs text-ink-400">{tool.readingTime}</span>
-                  </div>
-
-                  <div className="mt-3 pt-3 border-t border-ink-100">
-                    <span className="text-xs font-semibold text-ink-500">From: </span>
-                    <span className="text-xs font-semibold text-brand-600">{tool.startingPrice}</span>
-                  </div>
+                <div className="text-2xl mb-3 text-brand-600">{tool.icon}</div>
+                <div className="flex items-start justify-between gap-2 mb-2">
+                  <h3 className="font-bold text-ink-900 group-hover:text-brand-700 transition-colors">{tool.title}</h3>
+                  <span className="shrink-0 text-[10px] font-bold bg-brand-100 text-brand-700 px-2 py-0.5 rounded-full">{tool.badge}</span>
                 </div>
+                <p className="text-sm text-ink-500 leading-relaxed">{tool.desc}</p>
+                <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand-600 group-hover:text-brand-700">
+                  Try free →
+                </span>
               </Link>
-            );
-          })}
+            ))}
+          </div>
+        </section>
+
+        {/* Category filter */}
+        <div className="flex flex-wrap gap-2 mb-8">
+          {categories.map((cat) => (
+            <span key={cat} className="tag-pill cursor-pointer">{cat}</span>
+          ))}
         </div>
 
-        {/* Compare CTA */}
-        <div className="mt-14 rounded-2xl bg-brand-50 border border-brand-100 p-8 text-center">
-          <h2 className="text-xl font-bold text-ink-900 mb-2">Not sure which to choose?</h2>
-          <p className="text-ink-500 mb-5">
-            See our side-by-side comparisons to find the right AI tool for your workflow.
-          </p>
-          <Link href="/compare" className="btn-primary inline-flex">
-            View Comparisons
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">
-              <path fillRule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.638L10.23 5.29a.75.75 0 1 1 1.04-1.08l5.5 5.25a.75.75 0 0 1 0 1.08l-5.5 5.25a.75.75 0 1 1-1.04-1.08l4.158-3.96H3.75A.75.75 0 0 1 3 10Z" clipRule="evenodd" />
-            </svg>
-          </Link>
+        {/* Tools grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {tools.map((tool) => (
+            <div
+              key={tool.slug}
+              className="bg-white rounded-2xl shadow-card hover:shadow-card-hover transition-all duration-300 p-6 border border-ink-100"
+            >
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-10 h-10 rounded-xl bg-brand-100 flex items-center justify-center text-brand-700 font-bold text-lg shrink-0">
+                  {tool.icon}
+                </div>
+                <div>
+                  <h3 className="font-bold text-ink-900">{tool.name}</h3>
+                  <span className="tag-pill text-[10px]">{tool.category}</span>
+                </div>
+              </div>
+              <p className="text-ink-500 text-sm mb-4 leading-relaxed">{tool.desc}</p>
+              <div className="flex items-center justify-between">
+                <span className="text-xs text-ink-400">{tool.price}</span>
+                <Link
+                  href={`/tools/${tool.slug}`}
+                  className="text-brand-600 text-sm font-semibold hover:text-brand-700 transition-colors"
+                >
+                  View →
+                </Link>
+              </div>
+            </div>
+          ))}
         </div>
+
+        {/* CTA */}
+        <section className="mt-16 rounded-3xl bg-gradient-to-br from-brand-600 to-brand-800 px-8 py-12 text-center text-white overflow-hidden relative">
+          <div
+            className="absolute inset-0 opacity-[0.06]"
+            style={{
+              backgroundImage: "radial-gradient(circle, #ffffff 1px, transparent 1px)",
+              backgroundSize: "24px 24px",
+            }}
+          />
+          <div className="relative">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-3 tracking-tight">
+              Read in-depth reviews
+            </h2>
+            <p className="text-brand-200 mb-6 text-lg">
+              Go beyond the listing — see how each tool performs in real-world use cases.
+            </p>
+            <Link
+              href="/reviews"
+              className="inline-flex items-center gap-2 bg-white text-brand-700 font-bold px-7 py-3 rounded-full hover:bg-brand-50 transition-colors shadow-sm"
+            >
+              Browse All Reviews
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">
+                <path fillRule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.638L10.23 5.29a.75.75 0 1 1 1.04-1.08l5.5 5.25a.75.75 0 0 1 0 1.08l-5.5 5.25a.75.75 0 1 1-1.04-1.08l4.158-3.96H3.75A.75.75 0 0 1 3 10Z" clipRule="evenodd" />
+              </svg>
+            </Link>
+          </div>
+        </section>
       </div>
     </>
   );

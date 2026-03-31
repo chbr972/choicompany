@@ -43,13 +43,13 @@ export default function Header() {
             href="/tools"
             className="px-3 py-1.5 rounded-lg text-ink-600 hover:text-ink-900 hover:bg-ink-100 transition-all"
           >
-            AI Tools
+            Tools
           </Link>
           <Link
-            href="/compare"
+            href="/reviews"
             className="px-3 py-1.5 rounded-lg text-ink-600 hover:text-ink-900 hover:bg-ink-100 transition-all"
           >
-            Compare
+            Reviews
           </Link>
           <Link
             href="/blog"

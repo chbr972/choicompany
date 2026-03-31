@@ -29,7 +29,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-sm text-ink-400 leading-relaxed">
-              Insightful articles on technology, productivity, and modern life.
+              Discover and compare the best AI tools. Expert reviews, guides, and a curated directory for AI productivity.
             </p>
           </div>
 
@@ -37,6 +37,8 @@ export default function Footer() {
           <nav className="flex flex-col gap-2 text-sm">
             <p className="text-xs font-bold uppercase tracking-widest text-ink-500 mb-1">Explore</p>
             <Link href="/" className="hover:text-white transition-colors">Home</Link>
+            <Link href="/tools" className="hover:text-white transition-colors">AI Tools</Link>
+            <Link href="/reviews" className="hover:text-white transition-colors">Reviews</Link>
             <Link href="/blog" className="hover:text-white transition-colors">All Articles</Link>
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>

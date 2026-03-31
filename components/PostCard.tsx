@@ -20,7 +20,6 @@ export default function PostCard({ post }: PostCardProps) {
               <Link
                 key={tag}
                 href={`/blog/tag/${tagToSlug(tag)}`}
-                onClick={(e) => e.stopPropagation()}
                 className="tag-pill hover:bg-brand-200 transition-colors"
               >
                 {tag}

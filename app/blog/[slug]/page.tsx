@@ -221,6 +221,9 @@ export default async function BlogPostPage({ params }: Props) {
               <AdSlot slot="1100998877" format="multiplex" showLabel className="w-full" />
             </div>
 
+            {/* Newsletter signup */}
+            <NewsletterSignup variant="inline" />
+
             {/* Related Articles */}
             {related.length > 0 && (
               <section className="mt-12 pt-8 border-t border-ink-200">
