@@ -40,8 +40,16 @@ export default function Footer() {
             <Link href="/tools" className="hover:text-white transition-colors">AI Tools</Link>
             <Link href="/reviews" className="hover:text-white transition-colors">Reviews</Link>
             <Link href="/blog" className="hover:text-white transition-colors">All Articles</Link>
+            <Link href="/about" className="hover:text-white transition-colors">About</Link>
+            <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
+          </nav>
+
+          {/* Legal links */}
+          <nav className="flex flex-col gap-2 text-sm">
+            <p className="text-xs font-bold uppercase tracking-widest text-ink-500 mb-1">Legal</p>
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
+            <Link href="/disclaimer" className="hover:text-white transition-colors">Disclaimer</Link>
           </nav>
         </div>
 
