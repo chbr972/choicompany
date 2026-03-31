@@ -35,7 +35,7 @@ The most impactful AI use case for most people is writing. AI won't replace your
 - Replacing genuine expertise and voice
 - Long-form creative work without significant human editing
 
-**Getting started:** Use AI for the "blank page problem." Give it a rough outline or even just bullet points and ask it to write a first draft. Then edit heavily.
+**Getting started:** Use AI for the "blank page problem." Give it a rough outline or even just bullet points and ask it to write a first draft. Then edit heavily. Not sure how to phrase your request? Try our [free AI prompt generator](/tools/ai-prompt-generator) to craft better inputs instantly.
 
 ## Code Assistants
 
@@ -71,7 +71,7 @@ Conversational AI for research is powerful but requires calibration. Modern mode
 
 **Use them for:**
 - Getting a quick mental model of an unfamiliar topic
-- Summarizing long documents
+- [Summarizing long documents](/tools/ai-text-summarizer) — paste any article or report for an instant AI summary
 - Generating interview questions or research frameworks
 
 **Don't trust them for:**
