@@ -52,6 +52,12 @@ export default function Header() {
             Reviews
           </Link>
           <Link
+            href="/compare"
+            className="px-3 py-1.5 rounded-lg text-ink-600 hover:text-ink-900 hover:bg-ink-100 transition-all"
+          >
+            Compare
+          </Link>
+          <Link
             href="/blog"
             className="px-3 py-1.5 rounded-lg text-ink-600 hover:text-ink-900 hover:bg-ink-100 transition-all"
           >

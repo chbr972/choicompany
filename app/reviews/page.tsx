@@ -193,7 +193,7 @@ export default function ReviewsPage() {
                     </div>
 
                     <Link
-                      href={`/tools/${review.slug}`}
+                      href={`/reviews/${review.slug}`}
                       className="inline-flex items-center gap-1.5 text-brand-600 font-semibold text-sm hover:text-brand-700 transition-colors"
                     >
                       Read full review
