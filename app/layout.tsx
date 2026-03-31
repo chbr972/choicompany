@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Inter, Merriweather } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Analytics from "@/components/Analytics";
 import AdSenseScript from "@/components/AdSenseScript";
+import CookieConsent from "@/components/CookieConsent";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -12,15 +13,15 @@ const inter = Inter({
   display: "swap",
 });
 
-const merriweather = Merriweather({
-  weight: ["400", "700"],
+const playfairDisplay = Playfair_Display({
+  weight: ["400", "600", "700", "800"],
   subsets: ["latin"],
-  variable: "--font-merriweather",
+  variable: "--font-playfair",
   display: "swap",
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://issuebyte.com";
-const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "My Content Site";
+const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "IssueByte";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -75,13 +76,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${merriweather.variable}`}>
-      <body className="min-h-screen flex flex-col font-sans antialiased">
+    <html lang="en" className={`${inter.variable} ${playfairDisplay.variable}`}>
+      <body className="min-h-screen flex flex-col font-sans antialiased bg-surface-900 text-ink-100">
         <Analytics />
         <AdSenseScript />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <CookieConsent />
       </body>
     </html>
   );

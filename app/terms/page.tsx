@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
-const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "My Content Site";
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://choicompany-site.vercel.app";
+const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "IssueByte";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://issuebyte.com";
 
 export const metadata: Metadata = {
   title: "Terms of Service",

@@ -21,7 +21,7 @@ export default function AdSlot({
   format = "auto",
   className = "",
   responsive = true,
-  showLabel = false,
+  showLabel = true,
 }: AdSlotProps) {
   const adRef = useRef<HTMLModElement>(null);
   const initialized = useRef(false);

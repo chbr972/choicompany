@@ -11,7 +11,7 @@ export default function PrivacyPage() {
   return (
     <div className="max-w-3xl mx-auto px-4 py-12">
       <h1 className="text-3xl font-bold text-gray-900 mb-2">Privacy Policy</h1>
-      <p className="text-sm text-gray-500 mb-8">Last updated: March 30, 2026</p>
+      <p className="text-sm text-gray-500 mb-8">Last updated: April 1, 2026</p>
 
       <div className="prose-content">
         <p>
@@ -166,7 +166,59 @@ export default function PrivacyPage() {
           your rights, please contact us through the Site.
         </p>
 
-        <h2>9. Changes to This Policy</h2>
+        <h2>9. European Union Residents (GDPR)</h2>
+        <p>
+          If you are located in the European Economic Area (EEA), you have the
+          following rights under the General Data Protection Regulation (GDPR):
+        </p>
+        <ul>
+          <li>
+            <strong>Right of access:</strong> You may request a copy of the
+            personal data we hold about you.
+          </li>
+          <li>
+            <strong>Right to rectification:</strong> You may request correction
+            of inaccurate or incomplete personal data.
+          </li>
+          <li>
+            <strong>Right to erasure:</strong> You may request deletion of your
+            personal data where there is no compelling reason for us to continue
+            processing it.
+          </li>
+          <li>
+            <strong>Right to restriction:</strong> You may request that we limit
+            how we use your personal data in certain circumstances.
+          </li>
+          <li>
+            <strong>Right to data portability:</strong> You may request a
+            machine-readable copy of personal data you have provided to us.
+          </li>
+          <li>
+            <strong>Right to object:</strong> You may object to our processing
+            of your personal data for direct marketing or where we rely on
+            legitimate interests as a legal basis.
+          </li>
+          <li>
+            <strong>Right to withdraw consent:</strong> Where we rely on consent
+            as the legal basis for processing (e.g., cookies), you may withdraw
+            your consent at any time.
+          </li>
+        </ul>
+        <p>
+          Our legal basis for processing data through Google Analytics and
+          AdSense is your consent, obtained via our cookie consent banner. You
+          may withdraw consent at any time by clearing cookies and declining
+          consent on your next visit. To exercise any of the above rights,
+          please contact us through the Site.
+        </p>
+        <p>
+          Data collected via Google Analytics and AdSense is retained by Google
+          in accordance with their data retention policies (typically 14 months
+          for Analytics data). We do not independently store analytics or
+          advertising data.
+        </p>
+
+        <h2>10. Changes to This Policy</h2>
         <p>
           We may update this Privacy Policy from time to time. Changes will be
           posted on this page with an updated &ldquo;Last updated&rdquo; date.
@@ -174,7 +226,7 @@ export default function PrivacyPage() {
           updated policy.
         </p>
 
-        <h2>10. Contact</h2>
+        <h2>11. Contact</h2>
         <p>
           If you have questions about this Privacy Policy or how we handle your
           data, please contact us through the Site.
