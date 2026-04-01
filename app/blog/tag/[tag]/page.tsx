@@ -50,7 +50,7 @@ export default function TagPage({ params }: Props) {
             <Link href="/blog" className="hover:text-brand-600 transition-colors">Blog</Link>
           </li>
           <li aria-hidden="true" className="text-ink-300">/</li>
-          <li className="text-ink-600 font-medium">{tagLabel}</li>
+          <li className="text-ink-300 font-medium">{tagLabel}</li>
         </ol>
       </nav>
 
