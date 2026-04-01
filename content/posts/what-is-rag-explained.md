@@ -1,6 +1,6 @@
 ---
 title: "What Is RAG? Retrieval-Augmented Generation Explained Clearly"
-description: "RAG is one of the most important concepts in practical AI — here's a plain-English explanation of what it is, how it works, and why it matters."
+description: "RAG is one of the most important concepts in practical AI — here's a plain-English explanation of what it is, how it actually works, and why it matters."
 date: "2026-03-22"
 author: "Editorial Team"
 tags: ["AI", "RAG", "technology", "AI tools", "explainer"]

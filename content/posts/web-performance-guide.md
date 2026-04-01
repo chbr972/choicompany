@@ -3,7 +3,7 @@ title: "Web Performance in 2025: The Definitive Speed Optimization Guide"
 description: "Page speed is a ranking factor, a conversion factor, and a user experience factor. Here's how to get your site consistently scoring 90+ on Lighthouse."
 date: "2025-09-12"
 author: "Editorial Team"
-tags: ["web development", "performance", "SEO"]
+tags: ["web development", "performance", "SEO", "technology"]
 ---
 
 A one-second delay in page load time reduces conversions by 7%. That's not a hypothetical — it's from real data Google and Deloitte have documented across large-scale studies. Google bakes Core Web Vitals directly into its ranking algorithm. Mobile users on slow connections will bail before your page finishes loading. Every time.

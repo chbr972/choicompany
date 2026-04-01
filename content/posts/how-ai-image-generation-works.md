@@ -1,6 +1,6 @@
 ---
 title: "How AI Image Generation Works: A Clear, No-Jargon Guide"
-description: "Ever wondered what's actually happening when you type a prompt and an AI produces an image? Here's the real explanation — no math degree required."
+description: "Ever wondered what happens when you type a prompt and an AI produces an image? Here's a plain-English explanation of how image generation actually works."
 date: "2026-03-24"
 author: "Editorial Team"
 tags: ["AI", "image generation", "Midjourney", "DALL-E", "technology", "explainer"]

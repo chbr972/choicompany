@@ -1,6 +1,6 @@
 ---
 title: "Do You Need a Will? Estate Planning Basics Everyone Should Know"
-description: "Most Americans don't have a will. If you die without one, the state decides what happens to your assets. Here's what estate planning involves and how to get started."
+description: "Most Americans don't have a will. If you die without one, the state decides what happens to your assets. Here's what estate planning involves and how to start."
 date: "2026-01-06"
 author: "Editorial Team"
 tags: ["legal", "estate planning", "will", "personal finance"]

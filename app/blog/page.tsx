@@ -22,15 +22,15 @@ export default function BlogPage() {
             <Link href="/" className="hover:text-brand-600 transition-colors">Home</Link>
           </li>
           <li aria-hidden="true" className="text-ink-300">/</li>
-          <li className="text-ink-600 font-medium">Blog</li>
+          <li className="text-ink-300 font-medium">Blog</li>
         </ol>
       </nav>
 
       {/* Page header */}
       <div className="mb-10 pb-8 border-b border-ink-200">
         <p className="section-label mb-2">The Archive</p>
-        <h1 className="text-4xl font-bold text-ink-900 mb-3 tracking-tight">All Articles</h1>
-        <p className="text-lg text-ink-500">
+        <h1 className="text-4xl font-bold text-ink-50 mb-3 tracking-tight">All Articles</h1>
+        <p className="text-lg text-ink-300">
           {posts.length} article{posts.length !== 1 ? "s" : ""} and growing.
         </p>
       </div>

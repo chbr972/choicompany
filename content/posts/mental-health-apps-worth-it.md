@@ -1,6 +1,6 @@
 ---
 title: "Mental Health Apps: Which Ones Are Actually Worth It in 2025?"
-description: "Mental health apps have exploded in popularity, but quality varies wildly. We review the best apps for therapy, meditation, mood tracking, and anxiety — based on evidence, not marketing."
+description: "Mental health apps vary wildly in quality. We review the best options for therapy, meditation, mood tracking, and anxiety — based on evidence, not marketing."
 date: "2026-01-05"
 author: "Editorial Team"
 tags: ["health", "mental health", "apps", "wellness", "therapy"]

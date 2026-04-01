@@ -1,6 +1,6 @@
 ---
 title: "How to Use AI for Your Small Business (Without the Hype)"
-description: "A practical guide to where AI actually saves time and money for small businesses — and where it's not worth your attention yet."
+description: "A practical guide to the AI tools that genuinely save small businesses time and money in 2026 — and the areas where AI still isn't worth your attention."
 date: "2026-03-20"
 author: "Editorial Team"
 tags: ["AI", "small business", "productivity", "AI tools", "business"]

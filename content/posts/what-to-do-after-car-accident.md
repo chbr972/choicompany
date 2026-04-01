@@ -1,6 +1,6 @@
 ---
 title: "What to Do After a Car Accident: Legal Steps You Must Take"
-description: "The moments after a car accident are chaotic. Knowing exactly what to do — and what not to do — protects your legal rights and your insurance claim."
+description: "The steps you take immediately after a car accident matter more than most people realize. Here's a clear checklist of exactly what to do, in the right order."
 date: "2026-01-07"
 author: "Editorial Team"
 tags: ["legal", "car accident", "insurance", "personal injury"]

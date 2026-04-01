@@ -156,7 +156,7 @@ export default async function BlogPostPage({ params }: Props) {
             </li>
             <li aria-hidden="true" className="text-ink-300">/</li>
             <li itemScope itemType="https://schema.org/ListItem" itemProp="itemListElement">
-              <span className="text-ink-600 line-clamp-1" itemProp="name">{post.title}</span>
+              <span className="text-ink-300 line-clamp-1" itemProp="name">{post.title}</span>
               <meta itemProp="position" content="3" />
             </li>
           </ol>
@@ -174,12 +174,12 @@ export default async function BlogPostPage({ params }: Props) {
                   </Link>
                 ))}
               </div>
-              <h1 className="text-4xl sm:text-5xl font-bold text-ink-900 mb-4 leading-[1.15] tracking-tight font-serif">
+              <h1 className="text-4xl sm:text-5xl font-bold text-ink-50 mb-4 leading-[1.15] tracking-tight font-serif">
                 {post.title}
               </h1>
-              <p className="text-xl text-ink-500 mb-6 leading-relaxed">{post.description}</p>
+              <p className="text-xl text-ink-300 mb-6 leading-relaxed">{post.description}</p>
               <div className="flex flex-wrap items-center gap-3 text-sm text-ink-400 pb-6 border-b border-ink-200">
-                <span className="font-medium text-ink-600">{post.author}</span>
+                <span className="font-medium text-ink-200">{post.author}</span>
                 <span className="w-1 h-1 rounded-full bg-ink-300" />
                 <time dateTime={post.date}>
                   {new Date(post.date).toLocaleDateString("en-US", {

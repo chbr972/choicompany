@@ -16,13 +16,13 @@ I researched this in depth, talked through the math with fee-only financial advi
 
 **Whole life insurance** is permanent coverage that lasts your entire life as long as you pay premiums. It includes a cash value component — a savings element inside the policy that grows over time at a guaranteed rate (typically 2–4%) and can be borrowed against or surrendered.
 
-That's the fundamental split: affordable temporary coverage vs. expensive permanent coverage with a savings element.
+That's the fundamental split: affordable temporary coverage versus expensive permanent coverage with a savings element.
 
-The reason this choice matters so much comes down to cost. That same death benefit costs dramatically different amounts depending on which type you choose.
+The reason this choice matters comes down to cost. Same death benefit, completely different price tag.
 
 ## What Term Life Costs
 
-Term life is priced on your age, health, sex, coverage amount, and term length. Here are real-world benchmark quotes for a healthy, non-smoking individual in April 2026:
+Term life is priced on your age, health, sex, coverage amount, and term length. Real-world benchmark quotes for a healthy, non-smoking individual in April 2026:
 
 **$500,000 death benefit, 20-year term:**
 
@@ -48,7 +48,7 @@ That's 12–20 times the cost of a comparable term policy.
 
 A healthy 30-year-old female would pay approximately $280–$420 per month for the same $500,000 whole life benefit.
 
-This cost difference is not a quirk or a sign that one is a better deal than the other. They're genuinely different products serving different purposes.
+This cost difference is not a quirk or a sign that one is a bad deal. They're genuinely different products serving different purposes. The problem is that whole life is frequently sold to people for whom term life would be the right product.
 
 ## Term Life vs Whole Life: Full Comparison
 
@@ -78,25 +78,25 @@ If you invest that $397 monthly difference in a broad U.S. stock market index fu
 
 **You'd accumulate approximately $208,000 in your own investment account.**
 
-The cash value in a typical whole life policy after 20 years of premiums on a $500,000 policy would be roughly $80,000–$120,000 — and that's before surrender charges, policy loans, or administrative fees that eat into the actual return.
+The cash value in a typical whole life policy after 20 years of premiums on a $500,000 policy would be roughly $80,000–$120,000 — and that's before surrender charges, policy loans, or administrative fees.
 
 The personal investment account wins by approximately $90,000–$130,000. And unlike cash value, your own investment account doesn't reduce the death benefit if you access it.
 
-This is why the mainstream financial planning advice is so consistent: for most working adults, term plus disciplined investing outperforms whole life as both an insurance strategy and an accumulation strategy.
+This is why the mainstream financial planning advice is so consistent: for most working adults, term plus disciplined investing outperforms whole life as both an insurance strategy and an accumulation strategy. It's not a close call for most people.
 
 ## When Whole Life Insurance Actually Makes Sense
 
-Despite the math above, whole life is genuinely the right tool in specific situations. The problem is that these situations describe a small minority of buyers, not the typical family being pitched permanent insurance.
+Despite the math above, whole life is genuinely the right tool in specific situations. The problem is that these situations describe a small minority of buyers — not the typical family being pitched permanent insurance.
 
-**Estate planning for high-net-worth individuals.** Federal estate tax currently applies to estates above $13.61 million (2024 figure; this threshold changes with legislation). For estates above this threshold, permanent life insurance can provide liquidity for heirs to pay estate taxes without being forced to sell family businesses, real estate, or other illiquid assets. The policy proceeds pass to heirs tax-free. This is a real use case — for people with multi-million-dollar taxable estates.
+**Estate planning for high-net-worth individuals.** Federal estate tax currently applies to estates above $13.61 million. For estates above this threshold, permanent life insurance can provide liquidity for heirs to pay estate taxes without being forced to sell family businesses, real estate, or other illiquid assets. The policy proceeds pass to heirs tax-free. This is a real use case — for people with multi-million-dollar taxable estates.
 
-**Business buy-sell agreements.** Business partners sometimes use permanent life insurance to fund a buy-sell agreement — if one partner dies, the surviving partners use the death benefit to purchase the deceased partner's share, ensuring business continuity. This requires permanent coverage because the need doesn't expire at a fixed date.
+**Business buy-sell agreements.** Business partners sometimes use permanent life insurance to fund a buy-sell agreement — if one partner dies, the surviving partners use the death benefit to purchase the deceased partner's share. This requires permanent coverage because the need doesn't expire at a fixed date.
 
-**Supplemental retirement income in specific tax situations.** In certain high-income scenarios, the tax-deferred cash value growth and tax-free policy loans can supplement retirement income in ways that complement maxed-out 401(k) and Roth IRA contributions. This strategy requires expert planning and isn't appropriate for most people — but it exists.
+**Supplemental retirement income in specific tax situations.** In certain high-income scenarios, the tax-deferred cash value growth and tax-free policy loans can supplement retirement income in ways that complement maxed-out 401(k) and Roth IRA contributions. This requires expert planning and isn't appropriate for most people — but it's a real strategy.
 
-**Guaranteed insurability for children.** Some parents purchase small whole life policies on young children (face amounts of $25,000–$50,000) to lock in insurability at young, healthy rates — guaranteeing the child can convert to higher coverage later regardless of any health conditions that develop. The coverage amounts are small and the cost is modest. This is a niche but defensible strategy.
+**Guaranteed insurability for children.** Some parents purchase small whole life policies on young children ($25,000–$50,000 face amounts) to lock in insurability at young, healthy rates — guaranteeing the child can convert to higher coverage later regardless of any health conditions that develop. The coverage amounts are small and the cost is modest. Niche but defensible.
 
-**People who genuinely cannot manage separate investments.** For someone who would never actually invest the difference — who would spend the $397/month difference rather than invest it — whole life provides forced savings alongside the death benefit. This is a behavioral argument rather than a financial one, but it's real.
+**People who genuinely cannot manage separate investments.** For someone who would never actually invest the difference — who would spend the $397/month rather than invest it — whole life provides forced savings alongside the death benefit. This is a behavioral argument rather than a financial one, but it's real.
 
 If none of these situations describe you, term life insurance is almost certainly the better financial decision.
 
@@ -112,11 +112,9 @@ Before comparing types, understand how much coverage you need. Buying the wrong 
 
 Sum these four categories and you have a conservative total coverage target.
 
-**The income replacement shortcut:** Multiply your annual gross income by 10–12. This provides enough that a surviving spouse could live off the investment returns from the payout (assuming 5–7% annual return on a conservatively invested lump sum) without touching principal.
+**The income replacement shortcut:** Multiply your annual gross income by 10–12. This provides enough that a surviving spouse could live off the investment returns from the payout without touching principal.
 
-For most working-age adults with children and a mortgage, **$500,000 to $1,500,000 in coverage** is a reasonable range. The exact amount depends on your specific income, debts, assets, and number of dependents.
-
-Don't underinsure to save on premiums. A $250,000 policy on a $120,000/year earner with a $400,000 mortgage and two young children is nowhere near enough.
+For most working-age adults with children and a mortgage, **$500,000 to $1,500,000 in coverage** is a reasonable range. Don't underinsure to save on premiums. A $250,000 policy on a $120,000/year earner with a $400,000 mortgage and two young children is nowhere near enough.
 
 ## Who Needs Life Insurance
 
@@ -134,56 +132,27 @@ You probably don't need it if:
 
 ## How to Shop for Term Life
 
-**Step 1: Calculate your coverage amount** using DIME or the 10–12x income method.
+**Step 1:** Calculate your coverage amount using DIME or the 10–12x income method.
 
-**Step 2: Choose your term length.** Match it to your period of maximum financial responsibility. If your youngest child is 5 and you have a 20-year mortgage, a 25-year term covers you until the kids are independent and the mortgage is paid. Common wisdom: 20–30 year terms for most people in their 30s.
+**Step 2:** Choose your term length. Match it to your period of maximum financial responsibility. If your youngest child is 5 and you have a 20-year mortgage, a 25-year term covers you until the kids are independent and the mortgage is paid. For most people in their 30s, 20–30 year terms make sense.
 
-**Step 3: Get quotes from multiple companies.** Rates vary significantly for identical coverage. Use Policygenius, HealthIQ, or SelectQuote to compare multiple insurers simultaneously.
+**Step 3:** Get quotes from multiple companies. Rates vary significantly for identical coverage. Use Policygenius, HealthIQ, or SelectQuote to compare multiple insurers simultaneously.
 
-**Step 4: Check financial strength ratings.** An insurer that can't pay claims in 25 years is worthless. Check AM Best ratings and stick with insurers rated A- or better.
+**Step 4:** Check financial strength ratings. An insurer that can't pay claims in 25 years is worthless. Check AM Best ratings and stick with insurers rated A- or better.
 
-**Step 5: Understand the underwriting process.** Most policies require a medical exam (blood draw, vitals, health history). Some newer insurers (Haven Life, Ladder, Bestow) offer accelerated underwriting — no exam required for qualifying applicants under certain age and coverage thresholds.
+**Step 5:** Understand the underwriting process. Most policies require a medical exam (blood draw, vitals, health history). Some newer insurers — Haven Life, Ladder, Bestow — offer accelerated underwriting with no exam required for qualifying applicants.
 
-**Top-rated term life insurers in April 2026:** Haven Life (backed by MassMutual), Banner Life, Pacific Life, Protective Life, Principal Financial. These consistently rank highly on financial strength, customer service, and competitive pricing.
-
-## Pros and Cons Summary
-
-**Term Life:**
-
-Pros:
-- Dramatically lower premiums for comparable death benefit
-- Simple to understand — you pay, it pays if you die, it ends when the term does
-- Death benefit is fixed and clear
-- Allows you to invest the premium difference elsewhere
-
-Cons:
-- Coverage expires — if you need coverage past the term, premiums spike on renewal
-- No cash accumulation
-- Renewing at the end of a term can be very expensive if your health has declined
-
-**Whole Life:**
-
-Pros:
-- Permanent — never expires as long as premiums are paid
-- Guaranteed cash value accumulation (though slow)
-- Can borrow against cash value
-- Dividends from mutual insurers (not guaranteed) can grow the policy value
-
-Cons:
-- Premiums are 10–15x higher than term for the same death benefit
-- Cash value grows slowly — surrender in the first 10–15 years typically means getting back less than you paid in (surrender charges)
-- Returns on cash value are lower than most broad market investments over 20+ years
-- Agent commissions on whole life are much higher — creating sales incentives misaligned with your interests
+**Top-rated term life insurers in April 2026:** Haven Life (backed by MassMutual), Banner Life, Pacific Life, Protective Life, Principal Financial. These consistently rank well on financial strength, customer service, and pricing.
 
 ## Red Flags When Buying Life Insurance
 
-**An agent pushing whole life on a young family with limited budget.** This is the most common harmful sale in life insurance. A 30-year-old with kids, a mortgage, and $500/month to spare does not need whole life insurance — they need $1 million in term coverage for $50/month and $450/month invested in a Roth IRA. The agent earns far more commission on the whole life sale.
+**An agent pushing whole life on a young family with a limited budget.** This is the most common harmful sale in life insurance. A 30-year-old with kids, a mortgage, and $500/month to spare does not need whole life insurance — they need $1 million in term coverage for $50/month and $450/month invested in a Roth IRA. The agent earns far more commission on the whole life sale. That's the conflict of interest in plain language.
 
 **"It's a great investment."** Life insurance is not a good investment vehicle for most people. It's protection against early death. When someone conflates the two, they're selling you on the more expensive product by obscuring the comparison.
 
 **High surrender charges on cancellation.** Many whole life and universal life policies carry surrender charges of 5–15% if you cancel in the first 10–15 years. If you buy whole life and later decide it was wrong for you, exiting is expensive.
 
-**Indexed universal life (IUL) complexity.** IUL products are more complex than whole life, with more variables and assumptions that must go right. They're often sold with optimistic illustrations that assume favorable market conditions. Independent fee-only advisors are nearly unanimous: IUL is frequently oversold and underperforms expectations. Get a second opinion from a fee-only advisor (NAPFA.org) before buying.
+**Indexed universal life (IUL) complexity.** IUL products are more complex than whole life, with more variables and assumptions that must go right. They're often sold with optimistic illustrations that assume favorable market conditions. Independent fee-only advisors are nearly unanimous: IUL is frequently oversold. Get a second opinion from a fee-only advisor (NAPFA.org) before buying.
 
 ## The Bottom Line
 

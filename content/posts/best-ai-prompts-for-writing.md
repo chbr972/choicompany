@@ -1,6 +1,6 @@
 ---
 title: "Best AI Prompts for Writing: Templates That Actually Work"
-description: "Copy-paste prompts for common writing tasks — blog posts, emails, proposals, social content, and more. Tested and refined for real use."
+description: "Copy-paste prompts for the most common writing tasks — blog posts, emails, proposals, social content, and more. Tested and refined for effective real-world use."
 date: "2026-03-26"
 author: "Editorial Team"
 tags: ["AI", "prompts", "writing", "AI tools", "productivity", "content creation"]

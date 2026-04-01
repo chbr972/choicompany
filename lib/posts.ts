@@ -140,6 +140,17 @@ export const CATEGORIES: Category[] = [
   },
 ];
 
+/** Find the primary category for a post based on its tags */
+export function getCategoryForPost(tags: string[]): Category | null {
+  const tagSlugsForPost = tags.map(tagToSlug);
+  for (const cat of CATEGORIES) {
+    if (tagSlugsForPost.some((ts) => cat.tagSlugs.includes(ts))) {
+      return cat;
+    }
+  }
+  return null;
+}
+
 /** Return posts that belong to a given category (matched via tag slugs) */
 export function getPostsByCategory(categorySlug: string): PostMeta[] {
   const category = CATEGORIES.find((c) => c.slug === categorySlug);

@@ -1,6 +1,6 @@
 ---
 title: "How to File for Bankruptcy: A Complete Guide to Chapters 7 and 13"
-description: "Bankruptcy can be a path to financial recovery, not a financial death sentence. This guide explains who qualifies, how it works, and what to expect from the process."
+description: "Bankruptcy can be a path to financial recovery, not a dead end. This guide explains who qualifies, how the process works, and what happens to your assets."
 date: "2026-01-08"
 author: "Editorial Team"
 tags: ["legal", "bankruptcy", "personal finance", "debt relief"]

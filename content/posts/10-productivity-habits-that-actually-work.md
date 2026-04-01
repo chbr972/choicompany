@@ -1,6 +1,6 @@
 ---
 title: "10 Productivity Habits That Actually Work in 2025"
-description: "Forget the hype. These ten evidence-backed habits will genuinely move the needle on your output without burning you out."
+description: "Forget the hype. These ten evidence-backed habits will genuinely move the needle on your daily output — without burning you out or overhauling your life."
 date: "2025-12-15"
 author: "Editorial Team"
 tags: ["productivity", "habits", "focus"]

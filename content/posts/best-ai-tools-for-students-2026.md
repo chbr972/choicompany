@@ -1,6 +1,6 @@
 ---
 title: "Best AI Tools for Students in 2026: Study Smarter"
-description: "The best AI tools for students in 2026 — for studying, writing, research, coding, and learning. Includes free options and tools specifically built for academic use."
+description: "The best AI tools for students in 2026 — for studying, writing, research, and coding. Includes free options and tools specifically built for academic use."
 date: "2026-03-31"
 author: "Editorial Team"
 category: "AI Tools"
