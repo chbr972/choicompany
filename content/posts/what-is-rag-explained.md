@@ -8,7 +8,7 @@ tags: ["AI", "RAG", "technology", "AI tools", "explainer"]
 
 If you've spent any time around AI tools in a professional context, you've probably heard "RAG" thrown around. It shows up in vendor pitches, technical discussions, and product announcements — almost always without a clear explanation of what it actually means or why it matters.
 
-Here's the plain-English version. No jargon. No hand-waving.
+I kept nodding along to RAG conversations for months before I actually understood what was happening under the hood. Once it clicked, it changed how I evaluate every AI product that claims to "know your documents." Here's the plain-English version. No jargon. No hand-waving.
 
 ## The Problem RAG Solves
 

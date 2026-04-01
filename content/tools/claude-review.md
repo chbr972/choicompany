@@ -81,7 +81,7 @@ This sounds like basic table stakes, but it's not consistent across tools. ChatG
 
 On Pro and Max plans, Claude processes up to 200,000 tokens in a single conversation — roughly 150,000 words. That's enough to paste in an entire book, a large codebase, or dozens of research papers and ask coherent questions across all of them.
 
-I tested this with a 60,000-word technical document, asking Claude to summarize specific sections, identify contradictions between chapters, and compare the document's claims to external sources I added. It handled all of it without losing context. This workflow is genuinely transformative for research, legal review, and technical documentation projects.
+I tested this with a 60,000-word technical document, asking Claude to summarize specific sections, identify contradictions between chapters, and compare the document's claims to external sources I added. It handled all of it without losing context. If you work with large documents regularly — research papers, legal contracts, technical docs — this alone justifies the subscription.
 
 ## Pros and Cons Summary
 

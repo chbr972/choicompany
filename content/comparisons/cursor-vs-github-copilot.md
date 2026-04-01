@@ -64,7 +64,7 @@ Cursor indexes your entire codebase locally and makes it available to the AI con
 - Reference internal APIs and custom abstractions correctly
 - Suggest code that fits your project's patterns and conventions
 
-GitHub Copilot has added workspace indexing, but it's less comprehensive. Copilot primarily uses the files open in your editor plus some workspace context, but it doesn't have the same deep project-wide understanding.
+GitHub Copilot has added workspace indexing, but it's shallower. Copilot primarily uses the files open in your editor plus some workspace context — it doesn't have the same project-wide picture that Cursor builds.
 
 For developers working on large codebases, this difference is significant. Cursor's answers feel like they come from someone who has read your entire codebase. Copilot's answers sometimes feel like good guesses.
 

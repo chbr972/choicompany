@@ -73,7 +73,7 @@ For teams that need to process and calculate across structured data, Coda is sig
 
 ## Project Management
 
-ClickUp is one of the most comprehensive project management platforms available:
+ClickUp packs more features into a single platform than almost any other project management tool:
 - Full task hierarchy (spaces, folders, lists, tasks, subtasks)
 - 15+ views: List, Board, Gantt, Timeline, Calendar, Workload, Map
 - Sprint management and velocity tracking

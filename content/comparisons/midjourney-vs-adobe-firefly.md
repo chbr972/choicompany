@@ -57,7 +57,7 @@ For professional designers and agencies using AI commercially, Firefly's clean l
 
 ## Adobe Creative Cloud Integration
 
-For Adobe users, Firefly's integration is transformative:
+For Adobe users, Firefly fits directly into the tools you're already running:
 
 - **Photoshop Generative Fill:** Extend images, remove objects, and add elements using Firefly directly in Photoshop
 - **Illustrator Generative Recolor:** Recolor vector artwork using natural language

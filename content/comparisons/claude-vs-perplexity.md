@@ -57,9 +57,9 @@ Claude's 200K token context window is one of its most distinctive capabilities. 
 - Extensive datasets and reports
 - Long conversation histories
 
-And Claude maintains coherence across all of it. This is genuinely transformative for researchers working with lengthy source materials.
+And Claude maintains coherence across all of it. If you're doing serious research — pulling threads across dozens of papers, reviewing a large codebase, or digging through a thick policy document — that context capacity is a real advantage Perplexity simply can't match.
 
-Perplexity can process uploaded documents but has a much smaller context window. It's better suited to answering specific questions about a document than analyzing it comprehensively.
+Perplexity can process uploaded documents but has a much smaller context window. It works better for targeted questions about a specific document than for analysis that spans the whole thing.
 
 **Winner: Claude** for long document analysis.
 

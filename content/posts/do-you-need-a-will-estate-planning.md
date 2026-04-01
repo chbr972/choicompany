@@ -12,7 +12,7 @@ If you die without a will, you die "intestate" — and the state decides what ha
 
 That's the worst-case scenario. But even in ordinary situations, dying without basic estate planning documents creates unnecessary headaches and costs for the people you leave behind.
 
-The good news: for most people, getting the basics done takes a few hours and costs between $100 and $1,500 depending on your situation. Here's exactly what you need and how to get it done.
+I put off dealing with this myself for two years with the usual excuses — not old enough, not rich enough, too busy. When I finally sat down and did it, it took a Saturday afternoon and about $400. The procrastination was embarrassing in retrospect. For most people, getting the basics done takes a few hours and costs between $100 and $1,500 depending on your situation. Here's exactly what you need and how to get it done.
 
 ## What Actually Happens If You Die Without a Will
 
