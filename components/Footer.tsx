@@ -1,5 +1,6 @@
 import Link from "next/link";
 import AdSlot from "./AdSlot";
+import NewsletterSignup from "./NewsletterSignup";
 
 const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "My Content Site";
 const currentYear = new Date().getFullYear();
@@ -51,6 +52,11 @@ export default function Footer() {
             <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
             <Link href="/disclaimer" className="hover:text-white transition-colors">Disclaimer</Link>
           </nav>
+
+          {/* Newsletter */}
+          <div className="w-full md:max-w-xs">
+            <NewsletterSignup variant="footer" />
+          </div>
         </div>
 
         <div className="mt-10 pt-6 border-t border-ink-700 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-ink-500">

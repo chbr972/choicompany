@@ -4,11 +4,12 @@ export async function POST(req: NextRequest) {
   const { email } = await req.json();
 
   if (!email || typeof email !== "string" || !email.includes("@")) {
-    return NextResponse.json({ error: "Valid email required." }, { status: 400 });
+    return NextResponse.json({ error: "Invalid email address." }, { status: 400 });
   }
 
   const apiKey = process.env.BUTTONDOWN_API_KEY;
   if (!apiKey) {
+    console.error("BUTTONDOWN_API_KEY is not set");
     return NextResponse.json({ error: "Newsletter service not configured." }, { status: 503 });
   }
 
@@ -18,7 +19,7 @@ export async function POST(req: NextRequest) {
       Authorization: `Token ${apiKey}`,
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ email_address: email, type: "regular" }),
+    body: JSON.stringify({ email_address: email, type: "unactivated" }),
   });
 
   if (res.status === 201) {
@@ -26,13 +27,14 @@ export async function POST(req: NextRequest) {
   }
 
   if (res.status === 400) {
-    const body = await res.json().catch(() => ({}));
+    const data = await res.json();
     // Already subscribed
-    if (JSON.stringify(body).includes("already")) {
+    if (JSON.stringify(data).includes("already")) {
       return NextResponse.json({ error: "You're already subscribed!" }, { status: 409 });
     }
     return NextResponse.json({ error: "Invalid email address." }, { status: 400 });
   }
 
+  console.error("Buttondown error", res.status, await res.text());
   return NextResponse.json({ error: "Something went wrong. Please try again." }, { status: 500 });
 }
