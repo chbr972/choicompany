@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { getAllPostSlugs, getPostBySlug, getSortedPostsMeta, tagToSlug } from "@/lib/posts";
 import AdSlot from "@/components/AdSlot";
 import NewsletterSignup from "@/components/NewsletterSignup";
+import Sidebar from "@/components/Sidebar";
 
 interface Props {
   params: { slug: string };
@@ -266,21 +267,8 @@ export default async function BlogPostPage({ params }: Props) {
 
           {/* Sidebar (desktop only) */}
           <aside className="hidden lg:block w-[300px] flex-shrink-0">
-            <div className="sticky top-[140px] space-y-6">
-              <AdSlot
-                slot="2233445566"
-                format="rectangle"
-                className="w-[300px] h-[250px]"
-                responsive={false}
-                showLabel
-              />
-              <AdSlot
-                slot="6655778899"
-                format="rectangle"
-                className="w-[300px] h-[250px]"
-                responsive={false}
-                showLabel
-              />
+            <div className="sticky top-[140px]">
+              <Sidebar currentSlug={post.slug} />
             </div>
           </aside>
         </div>
