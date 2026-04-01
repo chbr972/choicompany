@@ -40,7 +40,7 @@ export function getSortedComparisonsMeta(): ComparisonMeta[] {
   if (!fs.existsSync(comparisonsDirectory)) return [];
   const fileNames = fs.readdirSync(comparisonsDirectory);
   const allComparisons = fileNames
-    .filter((name) => name.endsWith(".md"))
+    .filter((name) => name.endsWith(".md") && !name.startsWith("_"))
     .map((fileName) => {
       const slug = fileName.replace(/\.md$/, "");
       const fullPath = path.join(comparisonsDirectory, fileName);
@@ -62,7 +62,7 @@ export function getAllComparisonSlugs(): string[] {
   if (!fs.existsSync(comparisonsDirectory)) return [];
   const fileNames = fs.readdirSync(comparisonsDirectory);
   return fileNames
-    .filter((name) => name.endsWith(".md"))
+    .filter((name) => name.endsWith(".md") && !name.startsWith("_"))
     .map((fileName) => fileName.replace(/\.md$/, ""));
 }
 

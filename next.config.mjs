@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  staticPageGenerationTimeout: 180,
   images: {
     formats: ["image/avif", "image/webp"],
     remotePatterns: [
@@ -11,6 +12,15 @@ const nextConfig = {
   },
   compress: true,
   poweredByHeader: false,
+  async redirects() {
+    return [
+      {
+        source: "/ai-tools",
+        destination: "/tools",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

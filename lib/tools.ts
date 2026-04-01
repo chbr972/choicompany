@@ -1,3 +1,58 @@
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
+
+const toolsDirectory = path.join(process.cwd(), "content/tools");
+
+export interface ToolMeta {
+  slug: string;
+  title: string;
+  description: string;
+  date: string;
+  author: string;
+  toolName: string;
+  toolDeveloper?: string;
+  toolUrl?: string;
+  category: string;
+  rating: number;
+  pricingModel: string;
+  startingPrice: string;
+  paidPrice?: string;
+  operatingSystem?: string;
+  pros?: string[];
+  cons?: string[];
+  readingTime: string;
+}
+
+function calcReadingTime(content: string): string {
+  const wordsPerMinute = 200;
+  const wordCount = content.split(/\s+/).length;
+  const minutes = Math.ceil(wordCount / wordsPerMinute);
+  return `${minutes} min read`;
+}
+
+export function getSortedToolsMeta(): ToolMeta[] {
+  if (!fs.existsSync(toolsDirectory)) return [];
+  const fileNames = fs.readdirSync(toolsDirectory);
+  const allTools = fileNames
+    .filter((name) => name.endsWith(".md"))
+    .map((fileName) => {
+      const slug = fileName.replace(/\.md$/, "");
+      const fullPath = path.join(toolsDirectory, fileName);
+      const fileContents = fs.readFileSync(fullPath, "utf8");
+      const { data, content } = matter(fileContents);
+      return {
+        slug,
+        readingTime: calcReadingTime(content),
+        ...(data as Omit<ToolMeta, "slug" | "readingTime">),
+      } as ToolMeta;
+    });
+
+  return allTools.sort((a, b) =>
+    new Date(a.date) < new Date(b.date) ? 1 : -1
+  );
+}
+
 export interface PricingTier {
   name: string;
   price: string;
@@ -830,6 +885,417 @@ export const tools: ToolData[] = [
     ],
     alternatives: ["chatgpt", "jasper"],
   },
+  {
+    slug: "copy-ai",
+    name: "Copy.ai",
+    tagline: "AI copywriting for marketers and content teams",
+    category: "Writing",
+    icon: "C",
+    url: "https://www.copy.ai",
+    price: "Free / $36/mo",
+    pricingTiers: [
+      { name: "Free", price: "$0/mo", features: ["2,000 words/mo", "90+ tools", "Chat"] },
+      { name: "Pro", price: "$36/mo", features: ["Unlimited words", "Brand voice", "Workflows"] },
+      { name: "Team", price: "$186/mo", features: ["5 users", "Advanced workflows", "API access"] },
+    ],
+    rating: 4.0,
+    ratingBreakdown: [
+      { criterion: "Ease of Use", score: 9.0 },
+      { criterion: "Output Quality", score: 7.5 },
+      { criterion: "Speed", score: 9.0 },
+      { criterion: "Value for Money", score: 8.0 },
+      { criterion: "Feature Depth", score: 7.5 },
+    ],
+    description: "AI-powered copywriting tool with 90+ templates for ads, emails, and social content.",
+    longDescription: "Copy.ai is a popular AI writing assistant focused on marketing copy. With 90+ templates covering everything from Facebook ads to product descriptions, it helps marketers generate first drafts quickly. The Workflows feature lets you automate multi-step content processes, making it useful for teams producing content at scale.",
+    pros: ["90+ specialized copy templates", "Generous free tier", "Workflow automation", "Fast output generation"],
+    cons: ["Output quality trails Claude and ChatGPT", "Best features require paid plan", "Less suited for long-form content"],
+    features: [
+      { title: "90+ Templates", description: "Specialized templates for ads, emails, social, and sales copy.", icon: "📋" },
+      { title: "Brand Voice", description: "Train the AI on your brand tone for consistent output.", icon: "🎙" },
+      { title: "Workflows", description: "Chain AI steps together to automate multi-stage content processes.", icon: "⚙️" },
+      { title: "Chat Interface", description: "Conversational AI interface for freeform copy generation.", icon: "💬" },
+    ],
+    useCases: ["Social media ad copy", "Email subject lines", "Product descriptions", "Blog intros and outlines"],
+    alternatives: ["jasper", "chatgpt"],
+  },
+  {
+    slug: "grammarly",
+    name: "Grammarly",
+    tagline: "AI writing assistant for grammar, clarity, and tone",
+    category: "Writing",
+    icon: "G",
+    url: "https://www.grammarly.com",
+    price: "Free / $12/mo",
+    pricingTiers: [
+      { name: "Free", price: "$0/mo", features: ["Grammar and spelling", "Tone detection", "Browser extension"] },
+      { name: "Premium", price: "$12/mo", features: ["Full sentence rewrites", "Clarity suggestions", "Plagiarism detection"] },
+      { name: "Business", price: "$15/user/mo", features: ["Style guide", "Brand tones", "Team analytics"] },
+    ],
+    rating: 4.3,
+    ratingBreakdown: [
+      { criterion: "Ease of Use", score: 9.5 },
+      { criterion: "Output Quality", score: 8.5 },
+      { criterion: "Speed", score: 9.5 },
+      { criterion: "Value for Money", score: 8.5 },
+      { criterion: "Feature Depth", score: 7.5 },
+    ],
+    description: "AI writing assistant that checks grammar, rewrites sentences, and improves clarity.",
+    longDescription: "Grammarly is the most widely-used AI writing assistant, with over 30 million daily active users. It integrates into browsers, Microsoft Office, Google Docs, and mobile keyboards, making it available wherever you write. Beyond grammar and spelling, its AI now rewrites full sentences, adjusts tone, and generates text completions.",
+    pros: ["Works everywhere via browser extension", "Excellent grammar and spelling", "Real-time tone detection", "Strong free tier"],
+    cons: ["Not a full content generator", "Premium rewrites can be bland", "Privacy concerns for sensitive documents"],
+    features: [
+      { title: "Grammar Check", description: "Real-time grammar, spelling, and punctuation corrections.", icon: "✅" },
+      { title: "Clarity Suggestions", description: "Rewrites confusing sentences for better readability.", icon: "💡" },
+      { title: "Tone Detector", description: "Analyzes the emotional tone of your writing and suggests adjustments.", icon: "🎭" },
+      { title: "Plagiarism Checker", description: "Checks your text against billions of web pages (Premium).", icon: "🔍" },
+    ],
+    useCases: ["Professional email writing", "Academic papers", "Business communications", "Social media posts"],
+    alternatives: ["jasper", "copy-ai"],
+  },
+  {
+    slug: "gemini",
+    name: "Google Gemini",
+    tagline: "Google's multimodal AI assistant for everyday tasks",
+    category: "Writing",
+    icon: "G",
+    url: "https://gemini.google.com",
+    badge: "Google's Best",
+    price: "Free / $20/mo",
+    pricingTiers: [
+      { name: "Free", price: "$0/mo", features: ["Gemini 1.5 Flash", "Google Workspace integration", "Image generation"] },
+      { name: "Advanced", price: "$20/mo", features: ["Gemini Ultra", "2TB Google One storage", "Deep Research"] },
+    ],
+    rating: 4.2,
+    ratingBreakdown: [
+      { criterion: "Ease of Use", score: 9.0 },
+      { criterion: "Output Quality", score: 8.5 },
+      { criterion: "Speed", score: 9.0 },
+      { criterion: "Value for Money", score: 8.0 },
+      { criterion: "Feature Depth", score: 8.0 },
+    ],
+    description: "Google's multimodal AI assistant integrated with Search, Docs, Gmail, and more.",
+    longDescription: "Google Gemini is Google's flagship AI assistant, powered by the Gemini Ultra model at the top tier. It integrates natively with Google Workspace — summarizing emails in Gmail, drafting in Docs, analyzing data in Sheets. Gemini stands out for real-time web search integration and its Deep Research feature that produces structured reports from live web sources.",
+    pros: ["Deep Google Workspace integration", "Real-time web access", "Strong multimodal capabilities", "Competitive free tier"],
+    cons: ["Trails Claude on nuanced writing tasks", "Advanced tier requires Google One subscription", "Less third-party ecosystem"],
+    features: [
+      { title: "Deep Research", description: "Automated multi-step research that produces structured reports.", icon: "🔬" },
+      { title: "Workspace Integration", description: "Native AI assistant in Gmail, Docs, Sheets, and Slides.", icon: "📊" },
+      { title: "Real-Time Search", description: "Grounded in live Google Search for up-to-date answers.", icon: "🌐" },
+      { title: "Multimodal", description: "Understands text, images, audio, and video inputs.", icon: "🎭" },
+    ],
+    useCases: ["Drafting emails and docs in Google Workspace", "Research and fact-finding", "Data analysis in Sheets", "Image and video understanding"],
+    alternatives: ["chatgpt", "claude", "perplexity-ai"],
+  },
+  {
+    slug: "dalle-3",
+    name: "DALL-E 3",
+    tagline: "OpenAI's image generator with precise prompt following",
+    category: "Image",
+    icon: "D",
+    url: "https://openai.com/dall-e-3",
+    badge: "Best Prompt Accuracy",
+    price: "Included in ChatGPT Plus",
+    pricingTiers: [
+      { name: "ChatGPT Plus", price: "$20/mo", features: ["DALL-E 3 access", "High-resolution images", "Inpainting"] },
+      { name: "API", price: "$0.04–$0.12/image", features: ["Programmatic access", "HD quality option", "Batch generation"] },
+    ],
+    rating: 4.3,
+    ratingBreakdown: [
+      { criterion: "Ease of Use", score: 9.5 },
+      { criterion: "Output Quality", score: 8.5 },
+      { criterion: "Speed", score: 8.5 },
+      { criterion: "Value for Money", score: 8.5 },
+      { criterion: "Feature Depth", score: 7.5 },
+    ],
+    description: "OpenAI's image generator known for precise prompt adherence and natural language control.",
+    longDescription: "DALL-E 3 is OpenAI's image generation model, integrated directly into ChatGPT. Its biggest advantage over competitors is prompt adherence — it accurately renders complex, detailed prompts including specific objects, relationships, and text. Accessible via ChatGPT Plus or the API, it's the easiest way to generate images from natural language.",
+    pros: ["Best prompt adherence of any image model", "Integrated into ChatGPT — no extra subscription", "Excellent at text in images", "Natural language editing via chat"],
+    cons: ["Aesthetic not as distinctive as Midjourney", "Limited style customization options", "API pricing adds up for bulk generation"],
+    features: [
+      { title: "Precise Prompt Following", description: "Accurately renders complex, detailed prompts with multiple elements.", icon: "🎯" },
+      { title: "Text in Images", description: "Reliably renders legible text within generated images.", icon: "✍️" },
+      { title: "ChatGPT Integration", description: "Generate and edit images directly within your ChatGPT conversation.", icon: "💬" },
+      { title: "Inpainting", description: "Edit specific regions of an image using natural language.", icon: "✂️" },
+    ],
+    useCases: ["Blog and article illustrations", "Social media graphics", "Product concept visualization", "Presentation visuals"],
+    alternatives: ["midjourney", "stable-diffusion"],
+  },
+  {
+    slug: "stable-diffusion",
+    name: "Stable Diffusion",
+    tagline: "Open-source image generation you can run locally",
+    category: "Image",
+    icon: "S",
+    url: "https://stability.ai",
+    badge: "Open Source",
+    price: "Free / self-hosted",
+    pricingTiers: [
+      { name: "Self-Hosted", price: "Free", features: ["Full model access", "No usage limits", "Custom fine-tuning"] },
+      { name: "DreamStudio API", price: "Pay-per-image", features: ["Cloud access", "SD3 model", "No setup required"] },
+    ],
+    rating: 4.2,
+    ratingBreakdown: [
+      { criterion: "Ease of Use", score: 5.5 },
+      { criterion: "Output Quality", score: 8.5 },
+      { criterion: "Speed", score: 8.0 },
+      { criterion: "Value for Money", score: 10.0 },
+      { criterion: "Feature Depth", score: 9.5 },
+    ],
+    description: "Open-source AI image model you can run locally with unlimited generation and full control.",
+    longDescription: "Stable Diffusion is the leading open-source AI image generation model, giving users full control over the generation process. Run it locally on your own GPU with no usage limits, fine-tune it on custom datasets, and access a massive ecosystem of community models and extensions via tools like AUTOMATIC1111 and ComfyUI.",
+    pros: ["Completely free to self-host", "Unlimited generations locally", "Huge community model ecosystem", "Full customization and fine-tuning", "Privacy — no data leaves your machine"],
+    cons: ["Requires technical setup for self-hosting", "GPU hardware needed for best performance", "Steep learning curve vs. hosted tools"],
+    features: [
+      { title: "Local Execution", description: "Run entirely on your own hardware with no API calls or usage fees.", icon: "💻" },
+      { title: "Custom Fine-Tuning", description: "Train the model on your own images for consistent character or style.", icon: "🎨" },
+      { title: "ControlNet", description: "Precise control over image composition using pose, depth, or edge maps.", icon: "🎮" },
+      { title: "Community Models", description: "Thousands of fine-tuned models on Civitai for any style or subject.", icon: "🌐" },
+    ],
+    useCases: ["Unlimited image generation at zero cost", "Custom character and brand style consistency", "Research and experimentation", "Privacy-sensitive image generation"],
+    alternatives: ["midjourney", "dalle-3"],
+  },
+  {
+    slug: "claude-code",
+    name: "Claude Code",
+    tagline: "Agentic AI coding assistant that works in your terminal",
+    category: "Coding",
+    icon: "A",
+    url: "https://claude.ai/code",
+    badge: "Agentic Coding",
+    price: "Usage-based (API)",
+    pricingTiers: [
+      { name: "API Usage", price: "$3–$15/M tokens", features: ["Full codebase access", "Terminal integration", "Git operations"] },
+      { name: "Max Plan", price: "$100/mo", features: ["High usage limits", "Claude Opus access", "Priority capacity"] },
+    ],
+    rating: 4.7,
+    ratingBreakdown: [
+      { criterion: "Ease of Use", score: 8.0 },
+      { criterion: "Output Quality", score: 9.5 },
+      { criterion: "Speed", score: 8.5 },
+      { criterion: "Value for Money", score: 8.0 },
+      { criterion: "Feature Depth", score: 9.5 },
+    ],
+    description: "Anthropic's agentic CLI tool that reads, edits, and runs code across your entire codebase.",
+    longDescription: "Claude Code is an agentic coding assistant that runs directly in your terminal, with full access to your file system, shell, and git history. Unlike code autocomplete tools, it can autonomously plan and execute multi-step coding tasks — reading relevant files, editing code, running tests, and committing changes. It's particularly strong at complex refactors and feature implementation in large codebases.",
+    pros: ["True agentic execution — not just autocomplete", "Full codebase and shell access", "Excellent reasoning on complex tasks", "Works with any editor or IDE"],
+    cons: ["Usage-based pricing can be expensive for heavy use", "CLI-first UX has a learning curve", "Requires API key setup"],
+    features: [
+      { title: "Agentic Execution", description: "Plans and executes multi-step coding tasks autonomously.", icon: "🤖" },
+      { title: "Full File System Access", description: "Reads any file in your repo to build complete context.", icon: "🗂" },
+      { title: "Shell Integration", description: "Runs commands, tests, and scripts directly in your terminal.", icon: "⚡" },
+      { title: "Git Operations", description: "Creates branches, commits changes, and manages git history.", icon: "📝" },
+    ],
+    useCases: ["Complex multi-file refactoring", "Feature implementation from spec", "Automated test generation", "Codebase exploration and Q&A"],
+    alternatives: ["cursor", "github-copilot"],
+  },
+  {
+    slug: "pika",
+    name: "Pika",
+    tagline: "AI video generation for fast, expressive short clips",
+    category: "Video",
+    icon: "P",
+    url: "https://pika.art",
+    price: "Free / $8/mo",
+    pricingTiers: [
+      { name: "Free", price: "$0/mo", features: ["150 credits/mo", "Watermarked video", "1080p generation"] },
+      { name: "Standard", price: "$8/mo", features: ["700 credits/mo", "No watermark", "Priority generation"] },
+      { name: "Unlimited", price: "$28/mo", features: ["Unlimited generations", "4K upscaling", "Longest clips"] },
+    ],
+    rating: 4.0,
+    ratingBreakdown: [
+      { criterion: "Ease of Use", score: 9.0 },
+      { criterion: "Output Quality", score: 7.5 },
+      { criterion: "Speed", score: 8.5 },
+      { criterion: "Value for Money", score: 8.5 },
+      { criterion: "Feature Depth", score: 7.5 },
+    ],
+    description: "Fast, user-friendly AI video generator for social media clips and creative animation.",
+    longDescription: "Pika is a consumer-friendly AI video generation platform that makes creating short video clips accessible to anyone. It supports text-to-video, image-to-video, and video-to-video transformation. Pika 2.0 improved consistency and motion quality significantly, making it competitive for social media content creation without a steep learning curve.",
+    pros: ["Easy to use — no technical skills needed", "Affordable entry-level pricing", "Fast generation speed", "Good for social media short clips"],
+    cons: ["Shorter clips than professional tools", "Quality trails Runway and Sora", "Credit system limits heavy use"],
+    features: [
+      { title: "Text-to-Video", description: "Generate video clips from text prompts with motion and scene variety.", icon: "🎬" },
+      { title: "Image-to-Video", description: "Animate any still image into a dynamic video.", icon: "🖼" },
+      { title: "Modify Region", description: "Select and transform specific parts of a video using AI.", icon: "✂️" },
+      { title: "Lip Sync", description: "Automatically sync character mouth movements to audio.", icon: "🎤" },
+    ],
+    useCases: ["Social media video content", "Product showcase animations", "Quick concept visualization", "Fun creative experiments"],
+    alternatives: ["runway", "sora"],
+  },
+  {
+    slug: "sora",
+    name: "Sora",
+    tagline: "OpenAI's video generation model for cinematic clips",
+    category: "Video",
+    icon: "S",
+    url: "https://sora.com",
+    badge: "Best Cinematic Quality",
+    price: "$20/mo (ChatGPT Plus)",
+    pricingTiers: [
+      { name: "ChatGPT Plus", price: "$20/mo", features: ["50 video generations/mo", "Up to 5-second clips", "720p resolution"] },
+      { name: "ChatGPT Pro", price: "$200/mo", features: ["500 video generations/mo", "1080p resolution", "20-second clips"] },
+    ],
+    rating: 4.4,
+    ratingBreakdown: [
+      { criterion: "Ease of Use", score: 8.5 },
+      { criterion: "Output Quality", score: 9.0 },
+      { criterion: "Speed", score: 7.0 },
+      { criterion: "Value for Money", score: 7.5 },
+      { criterion: "Feature Depth", score: 8.0 },
+    ],
+    description: "OpenAI's video generation model producing cinematic, physically realistic short clips.",
+    longDescription: "Sora is OpenAI's text-to-video model, delivering some of the highest-quality AI video available. It creates cinematic clips with realistic physics, consistent characters, and smooth motion. Available to ChatGPT Plus subscribers, Sora is best suited for creative professionals who need visually impressive short-form video without extensive post-production.",
+    pros: ["Exceptional cinematic quality and realism", "Consistent object and character motion", "Integrated with ChatGPT ecosystem", "Strong at complex scene generation"],
+    cons: ["Limited generation quota on Plus tier", "Relatively slow generation", "Short clip lengths on base plan"],
+    features: [
+      { title: "Realistic Physics", description: "Generates video with physically plausible motion and interactions.", icon: "⚡" },
+      { title: "Consistent Characters", description: "Maintains character appearance across frames and scenes.", icon: "🎭" },
+      { title: "Story Mode", description: "Chain multiple video clips together into a short narrative.", icon: "📽" },
+      { title: "Re-Cut", description: "Edit and remix generated videos with additional prompts.", icon: "✂️" },
+    ],
+    useCases: ["Cinematic concept visualization", "Advertising and brand videos", "Film and TV prototyping", "Social media hero content"],
+    alternatives: ["runway", "pika"],
+  },
+  {
+    slug: "elevenlabs",
+    name: "ElevenLabs",
+    tagline: "Hyper-realistic AI voice generation and cloning",
+    category: "Audio",
+    icon: "E",
+    url: "https://elevenlabs.io",
+    badge: "Best Voice Quality",
+    price: "Free / $5/mo",
+    pricingTiers: [
+      { name: "Free", price: "$0/mo", features: ["10,000 chars/mo", "10 voices", "Standard quality"] },
+      { name: "Starter", price: "$5/mo", features: ["30,000 chars/mo", "30 voices", "Commercial license"] },
+      { name: "Creator", price: "$22/mo", features: ["100,000 chars/mo", "Voice cloning", "Projects feature"] },
+    ],
+    rating: 4.8,
+    ratingBreakdown: [
+      { criterion: "Ease of Use", score: 9.0 },
+      { criterion: "Output Quality", score: 9.8 },
+      { criterion: "Speed", score: 8.5 },
+      { criterion: "Value for Money", score: 8.5 },
+      { criterion: "Feature Depth", score: 9.0 },
+    ],
+    description: "The gold standard for AI voice synthesis — natural, expressive, and cloneable.",
+    longDescription: "ElevenLabs produces the most realistic AI-generated voices available, with natural pacing, emotional inflection, and minimal robotic artifacts. It offers an extensive library of pre-built voices plus voice cloning from a short sample. The Projects feature handles long-form narration for podcasts, audiobooks, and video dubbing.",
+    pros: ["Best-in-class voice realism", "Voice cloning from short samples", "Multi-language support (29 languages)", "Excellent for audiobooks and narration"],
+    cons: ["Character limits on lower tiers", "Cloning voices requires careful ethical use", "API pricing can scale up quickly"],
+    features: [
+      { title: "Voice Cloning", description: "Clone any voice from a 1-minute sample with high fidelity.", icon: "🎙" },
+      { title: "Multilingual", description: "Generate natural speech in 29 languages with native accents.", icon: "🌍" },
+      { title: "Projects", description: "Long-form audio production for audiobooks, podcasts, and dubbing.", icon: "📚" },
+      { title: "Sound Effects", description: "Generate custom sound effects from text descriptions.", icon: "🔊" },
+    ],
+    useCases: ["Podcast and audiobook narration", "Video voiceovers and dubbing", "Virtual assistant voices", "Interactive character voices for games"],
+    alternatives: ["murf-ai", "descript"],
+  },
+  {
+    slug: "murf-ai",
+    name: "Murf AI",
+    tagline: "Professional AI voiceover studio for creators",
+    category: "Audio",
+    icon: "M",
+    url: "https://murf.ai",
+    price: "$29/mo",
+    pricingTiers: [
+      { name: "Free", price: "$0/mo", features: ["10 min voice generation", "No download", "10 voices"] },
+      { name: "Creator", price: "$29/mo", features: ["2h voice/mo", "60+ voices", "Commercial license"] },
+      { name: "Business", price: "$99/mo", features: ["4h voice/mo", "Custom voices", "Team collaboration"] },
+    ],
+    rating: 4.2,
+    ratingBreakdown: [
+      { criterion: "Ease of Use", score: 9.0 },
+      { criterion: "Output Quality", score: 8.0 },
+      { criterion: "Speed", score: 9.0 },
+      { criterion: "Value for Money", score: 7.5 },
+      { criterion: "Feature Depth", score: 8.5 },
+    ],
+    description: "AI voiceover studio with 120+ voices for presentations, videos, and explainers.",
+    longDescription: "Murf AI is a professional voiceover studio that lets content creators, marketers, and educators generate studio-quality narration without recording equipment. With 120+ AI voices across 20 languages, a built-in video editor, and Canva integration, Murf is designed as a complete voiceover production tool rather than just a TTS generator.",
+    pros: ["120+ high-quality voices", "Built-in video editor with sync", "Canva and Google Slides integration", "Easy studio interface"],
+    cons: ["More expensive than ElevenLabs for same quality", "No real-time voice cloning", "Limited voice customization options"],
+    features: [
+      { title: "Studio Editor", description: "Timeline-based voice editing with pitch, speed, and emphasis controls.", icon: "🎚" },
+      { title: "Video Sync", description: "Sync voiceover to video with automatic timing adjustment.", icon: "🎬" },
+      { title: "120+ Voices", description: "Professional voice library across 20 languages and many styles.", icon: "🎙" },
+      { title: "Canva Integration", description: "Generate voiceovers directly from Canva presentations.", icon: "🎨" },
+    ],
+    useCases: ["E-learning and training videos", "Marketing explainer videos", "Presentation voiceovers", "YouTube channel narration"],
+    alternatives: ["elevenlabs", "descript"],
+  },
+  {
+    slug: "descript",
+    name: "Descript",
+    tagline: "Edit video and podcasts by editing the transcript",
+    category: "Audio",
+    icon: "D",
+    url: "https://www.descript.com",
+    badge: "Best for Podcasters",
+    price: "Free / $24/mo",
+    pricingTiers: [
+      { name: "Free", price: "$0/mo", features: ["1 hour transcription/mo", "Basic editing", "720p export"] },
+      { name: "Hobbyist", price: "$24/mo", features: ["10h transcription/mo", "Overdub voice", "4K export"] },
+      { name: "Creator", price: "$40/mo", features: ["30h transcription/mo", "Screen recording", "Advanced AI tools"] },
+    ],
+    rating: 4.5,
+    ratingBreakdown: [
+      { criterion: "Ease of Use", score: 9.0 },
+      { criterion: "Output Quality", score: 8.5 },
+      { criterion: "Speed", score: 8.5 },
+      { criterion: "Value for Money", score: 8.5 },
+      { criterion: "Feature Depth", score: 9.0 },
+    ],
+    description: "Audio and video editor where you edit the transcript to edit the media — unique and powerful.",
+    longDescription: "Descript takes a fundamentally different approach to audio and video editing: you edit the text transcript, and the media changes to match. Delete a word in the transcript and it disappears from the audio/video. The Overdub feature lets you clone your own voice to fix recording mistakes by typing. It's the most approachable professional editing tool for podcasters and video creators.",
+    pros: ["Edit media by editing transcript — unique workflow", "Overdub voice cloning for mistake correction", "Excellent for podcast production", "Handles video and screen recording too"],
+    cons: ["Not a replacement for professional video editing", "Overdub quality varies with source audio", "Transcription accuracy affects edit quality"],
+    features: [
+      { title: "Transcript Editing", description: "Edit audio and video by editing the auto-generated transcript.", icon: "✍️" },
+      { title: "Overdub", description: "Clone your voice and fix audio mistakes by typing corrections.", icon: "🎙" },
+      { title: "Filler Word Removal", description: "One-click removal of 'um', 'uh', and other filler words.", icon: "✂️" },
+      { title: "Screen Recording", description: "Built-in screen recorder integrated with the full editing workflow.", icon: "💻" },
+    ],
+    useCases: ["Podcast production and editing", "YouTube video editing", "Course and tutorial creation", "Remote interview editing"],
+    alternatives: ["elevenlabs", "murf-ai"],
+  },
+  {
+    slug: "otter-ai",
+    name: "Otter.ai",
+    tagline: "AI meeting notes and transcription in real time",
+    category: "Productivity",
+    icon: "O",
+    url: "https://otter.ai",
+    badge: "Best for Meetings",
+    price: "Free / $17/mo",
+    pricingTiers: [
+      { name: "Free", price: "$0/mo", features: ["300 min transcription/mo", "Meeting summaries", "Zoom integration"] },
+      { name: "Pro", price: "$17/mo", features: ["1,200 min/mo", "Advanced search", "Speaker identification"] },
+      { name: "Business", price: "$40/user/mo", features: ["6,000 min/mo", "Admin controls", "Team features"] },
+    ],
+    rating: 4.3,
+    ratingBreakdown: [
+      { criterion: "Ease of Use", score: 9.5 },
+      { criterion: "Output Quality", score: 8.5 },
+      { criterion: "Speed", score: 9.5 },
+      { criterion: "Value for Money", score: 9.0 },
+      { criterion: "Feature Depth", score: 8.0 },
+    ],
+    description: "AI meeting assistant that transcribes, summarizes, and extracts action items in real time.",
+    longDescription: "Otter.ai is the leading AI meeting assistant, automatically joining your Zoom, Teams, and Google Meet calls to produce real-time transcripts, summaries, and action item lists. Its OtterPilot feature joins meetings autonomously, generates summaries within minutes of the meeting ending, and pushes action items to tools like Salesforce and HubSpot.",
+    pros: ["Real-time transcription in meetings", "Automatic action item extraction", "Integrates with Zoom, Teams, Google Meet", "Excellent speaker identification"],
+    cons: ["Less accurate on heavy accents", "Summaries can miss nuance", "Limited non-meeting use cases"],
+    features: [
+      { title: "OtterPilot", description: "Autonomously joins meetings and delivers summaries + action items.", icon: "🤖" },
+      { title: "Real-Time Transcription", description: "Live captions during any video call or in-person meeting.", icon: "📝" },
+      { title: "Action Item Extraction", description: "Automatically identifies and assigns tasks from meeting content.", icon: "✅" },
+      { title: "CRM Integration", description: "Push meeting summaries and action items to Salesforce and HubSpot.", icon: "🔗" },
+    ],
+    useCases: ["Sales call documentation", "Remote team meetings", "Interview transcription", "Conference and webinar notes"],
+    alternatives: ["notion-ai", "chatgpt"],
+  },
 ];
 
 export function getToolBySlug(slug: string): ToolData | undefined {
@@ -851,4 +1317,4 @@ export function getAlternatives(tool: ToolData): ToolData[] {
     .filter((t): t is ToolData => t !== undefined);
 }
 
-export const categories = ["All", "Writing", "Coding", "Image", "Productivity", "Research"];
+export const categories = ["All", "Writing", "Coding", "Image", "Video", "Audio", "Productivity", "Research"];
