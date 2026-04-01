@@ -39,15 +39,15 @@ export default function CategoriesPage() {
             <Link href="/" className="hover:text-brand-600 transition-colors">Home</Link>
           </li>
           <li aria-hidden="true" className="text-ink-300">/</li>
-          <li className="text-ink-600 font-medium">Categories</li>
+          <li className="text-ink-300 font-medium">Categories</li>
         </ol>
       </nav>
 
       {/* Header */}
       <div className="mb-10 pb-8 border-b border-ink-200">
         <p className="section-label mb-2">Browse Topics</p>
-        <h1 className="text-4xl font-bold text-ink-900 mb-3 tracking-tight">All Categories</h1>
-        <p className="text-lg text-ink-500">
+        <h1 className="text-4xl font-bold text-ink-50 mb-3 tracking-tight">All Categories</h1>
+        <p className="text-lg text-ink-300">
           {categoriesWithCounts.reduce((sum, c) => sum + c.count, 0)} articles across {CATEGORIES.length} topics.
         </p>
       </div>

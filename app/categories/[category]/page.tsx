@@ -79,7 +79,7 @@ export default function CategoryPage({ params }: Props) {
               <Link href="/categories" className="hover:text-brand-600 transition-colors">Categories</Link>
             </li>
             <li aria-hidden="true" className="text-ink-300">/</li>
-            <li className="text-ink-600 font-medium">{cat.name}</li>
+            <li className="text-ink-300 font-medium">{cat.name}</li>
           </ol>
         </nav>
 
@@ -87,8 +87,8 @@ export default function CategoryPage({ params }: Props) {
         <div className="mb-10 pb-8 border-b border-ink-200">
           <div className="text-4xl mb-3">{ICONS[cat.slug] ?? "📄"}</div>
           <p className="section-label mb-2">Category</p>
-          <h1 className="text-4xl font-bold text-ink-900 mb-3 tracking-tight">{cat.name}</h1>
-          <p className="text-lg text-ink-500 max-w-2xl">{cat.description}</p>
+          <h1 className="text-4xl font-bold text-ink-50 mb-3 tracking-tight">{cat.name}</h1>
+          <p className="text-lg text-ink-300 max-w-2xl">{cat.description}</p>
           <p className="text-sm text-ink-400 mt-3">
             {posts.length} article{posts.length !== 1 ? "s" : ""}
           </p>
