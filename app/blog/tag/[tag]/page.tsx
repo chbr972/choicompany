@@ -58,8 +58,8 @@ export default function TagPage({ params }: Props) {
         <p className="text-sm font-semibold uppercase tracking-widest text-brand-600 mb-2">
           Tag
         </p>
-        <h1 className="text-4xl font-bold text-gray-900 mb-3">{tagLabel}</h1>
-        <p className="text-lg text-gray-500">
+        <h1 className="text-4xl font-bold text-ink-50 mb-3">{tagLabel}</h1>
+        <p className="text-lg text-ink-300">
           {posts.length} article{posts.length !== 1 ? "s" : ""} tagged &ldquo;{tagLabel}&rdquo;
         </p>
       </div>

@@ -106,7 +106,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="text-ink-500 hover:text-white transition-colors"
+                  className="text-ink-400 hover:text-white transition-colors"
                 >
                   {s.icon}
                 </a>
@@ -116,7 +116,7 @@ export default function Footer() {
 
           {/* Col 2: Quick Links + Legal */}
           <div>
-            <p className="text-xs font-bold uppercase tracking-widest text-ink-500 mb-3">Quick Links</p>
+            <p className="text-xs font-bold uppercase tracking-widest text-ink-300 mb-3">Quick Links</p>
             <nav className="flex flex-col gap-2 text-sm mb-6">
               {QUICK_LINKS.map((l) => (
                 <Link key={l.href} href={l.href} className="hover:text-white transition-colors">
@@ -124,7 +124,7 @@ export default function Footer() {
                 </Link>
               ))}
             </nav>
-            <p className="text-xs font-bold uppercase tracking-widest text-ink-500 mb-3">Legal</p>
+            <p className="text-xs font-bold uppercase tracking-widest text-ink-300 mb-3">Legal</p>
             <nav className="flex flex-col gap-2 text-sm">
               {LEGAL_LINKS.map((l) => (
                 <Link key={l.href} href={l.href} className="hover:text-white transition-colors">
@@ -136,7 +136,7 @@ export default function Footer() {
 
           {/* Col 3: Categories */}
           <div>
-            <p className="text-xs font-bold uppercase tracking-widest text-ink-500 mb-3">Categories</p>
+            <p className="text-xs font-bold uppercase tracking-widest text-ink-300 mb-3">Categories</p>
             <nav className="flex flex-col gap-2 text-sm">
               {CATEGORIES.map((c) => (
                 <Link key={c.href} href={c.href} className="hover:text-white transition-colors">
@@ -153,7 +153,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-10 pt-6 border-t border-ink-700 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-ink-500">
+        <div className="mt-10 pt-6 border-t border-ink-700 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-ink-400">
           <p>&copy; {currentYear} {siteName}. All rights reserved.</p>
           <p>Built with Next.js &amp; Tailwind CSS</p>
         </div>
