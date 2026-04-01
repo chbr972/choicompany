@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getSortedPostsMeta } from "@/lib/posts";
 import { tools, categories } from "@/lib/tools";
-import PostCard from "@/components/PostCard";
 import AdSlot from "@/components/AdSlot";
 import NewsletterSignup from "@/components/NewsletterSignup";
+import CategoryFilteredPosts from "@/components/CategoryFilteredPosts";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://issuebyte.com";
 const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "AI Tools Hub";
@@ -219,25 +219,9 @@ export default function HomePage() {
           <AdSlot slot="1122334455" format="leaderboard" className="w-full max-w-[728px]" />
         </div>
 
-        {/* ── Post Grid ─────────────────────────────── */}
+        {/* ── Post Grid with Category Filter ────────── */}
         {rest.length > 0 && (
-          <section>
-            <div className="flex items-center gap-3 mb-7">
-              <span className="section-label">Latest Articles</span>
-              <div className="flex-1 h-px bg-ink-200" />
-              <Link
-                href="/blog"
-                className="text-xs font-semibold text-brand-600 hover:text-brand-700 transition-colors"
-              >
-                View all →
-              </Link>
-            </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {rest.map((post) => (
-                <PostCard key={post.slug} post={post} />
-              ))}
-            </div>
-          </section>
+          <CategoryFilteredPosts posts={rest} />
         )}
 
         {/* ── Newsletter CTA ─────────────────────── */}

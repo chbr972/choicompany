@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { PostMeta } from "@/lib/posts";
-import { tagToSlug, getCategoryForPost } from "@/lib/posts";
+import { tagToSlug, getCategoryForPost } from "@/lib/categories";
 
 interface PostCardProps {
   post: PostMeta;
