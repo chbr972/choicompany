@@ -71,7 +71,7 @@ export function getAllTags(): string[] {
   const posts = getSortedPostsMeta();
   const seen = new Set<string>();
   for (const post of posts) {
-    for (const tag of post.tags) {
+    for (const tag of (post.tags ?? [])) {
       seen.add(tag);
     }
   }
@@ -82,7 +82,7 @@ export function getAllTags(): string[] {
 export function getPostsByTag(tagSlug: string): PostMeta[] {
   const posts = getSortedPostsMeta();
   return posts.filter((p) =>
-    p.tags.some((t) => tagToSlug(t) === tagSlug)
+    (p.tags ?? []).some((t) => tagToSlug(t) === tagSlug)
   );
 }
 
@@ -146,7 +146,7 @@ export function getPostsByCategory(categorySlug: string): PostMeta[] {
   if (!category) return [];
   const posts = getSortedPostsMeta();
   return posts.filter((p) =>
-    p.tags.some((t) => category.tagSlugs.includes(tagToSlug(t)))
+    (p.tags ?? []).some((t) => category.tagSlugs.includes(tagToSlug(t)))
   );
 }
 
